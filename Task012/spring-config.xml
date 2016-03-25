@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--Task006-->
+    <bean id="stuntman" class="Task006.classes.Actor">
+        <constructor-arg value="Stuntman"/>
+        <constructor-arg ref="film"/>
+    </bean>
+    <bean id="understudy" class="Task006.classes.Actor">
+        <constructor-arg value="Understudy"/>
+        <constructor-arg ref="film1"/>
+    </bean>
+    <bean id="film" class="Task006.classes.Film">
+        <constructor-arg value="Avatar"/>
+        <constructor-arg ref="karo"/>
+        <constructor-arg ref="fantasy"/>
+    </bean>
+    <bean id="film1" class="Task006.classes.Film">
+        <constructor-arg value="Hangover"/>
+        <constructor-arg ref="dream"/>
+        <constructor-arg ref="comedy"/>
+    </bean>
+    <bean id="film2" class="Task006.classes.Film">
+        <constructor-arg value="Scream"/>
+        <constructor-arg ref="imax"/>
+        <constructor-arg ref="horror"/>
+    </bean>
+
+
+    <bean id="dream" class="Task006.classes.DreamCinema">
+        <constructor-arg value="Dream"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+    <bean id="karo" class="Task006.classes.KaroFilm">
+        <constructor-arg value="Karo"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+    <bean id="imax" class="Task006.classes.Imax">
+        <constructor-arg value="Imax"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+
+
+    <bean id="comedy" class="Task006.classes.Comedy">
+        <constructor-arg value="Comedy"/>
+    </bean>
+    <bean id="fantasy" class="Task006.classes.Fantasy">
+        <constructor-arg value="Fantasy"/>
+    </bean>
+    <bean id="horror" class="Task006.classes.Horror">
+        <constructor-arg value="Horror"/>
+    </bean>
+
+    <bean id="seller" class="Task006.classes.Seller">
+        <constructor-arg value="Seller"/>
+        <constructor-arg ref="viewer"/>
+    </bean>
+    <bean id="viewer" class="Task006.classes.Viewer">
+        <constructor-arg value="Viewer"/>
+        <constructor-arg ref="imax"/>
+    </bean>
+    <!--Task006-->
+
+
+    <!--Task009-->
+    <bean id="cm" class="Task009.ComplexMatrix2x2" scope="prototype">
+        <constructor-arg ref="cn"/>
+    </bean>
+    <bean id="cn" class="Task009.ComplexNumber" scope="prototype">
+    </bean>
+    <bean id="test1" class="Task009.ComplexMatrix2x2" scope="prototype">
+    </bean>
+    <!--Task009-->
+
+    <!--Task010-->
+    <bean id="actor1" class="Task010.classes.Actor">
+        <constructor-arg value="actor"/>
+        <constructor-arg ref="film0"/>
+    </bean>
+    <bean id="stuntman1" class="Task010.classes.StuntmanActor">
+        <constructor-arg value="Stuntman"/>
+        <constructor-arg ref="dream1"/>
+    </bean>
+    <bean id="understudy1" class="Task010.classes.UnderstudyActor">
+        <constructor-arg value="Understudy"/>
+        <constructor-arg ref="imax1"/>
+    </bean>
+    <bean id="film0" class="Task010.classes.Film">
+        <constructor-arg value="Avatar"/>
+        <constructor-arg ref="karo1"/>
+        <constructor-arg ref="fantasy1"/>
+    </bean>
+    <bean id="film01" class="Task010.classes.Film">
+        <constructor-arg value="Hangover"/>
+        <constructor-arg ref="dream1"/>
+        <constructor-arg ref="comedy1"/>
+    </bean>
+    <bean id="film02" class="Task010.classes.Film">
+        <constructor-arg value="Scream"/>
+        <constructor-arg ref="imax1"/>
+        <constructor-arg ref="horror1"/>
+    </bean>
+
+
+    <bean id="dream1" class="Task010.classes.DreamCinema">
+        <constructor-arg value="Dream"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+    <bean id="karo1" class="Task010.classes.KaroFilm">
+        <constructor-arg value="Karo"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+    <bean id="imax1" class="Task010.classes.Imax">
+        <constructor-arg value="Imax"/>
+        <constructor-arg value="Kazan"/>
+    </bean>
+
+
+    <bean id="comedy1" class="Task010.classes.Comedy">
+        <constructor-arg value="Comedy"/>
+    </bean>
+    <bean id="fantasy1" class="Task010.classes.Fantasy">
+        <constructor-arg value="Fantasy"/>
+    </bean>
+    <bean id="horror1" class="Task010.classes.Horror">
+        <constructor-arg value="Horror"/>
+    </bean>
+
+    <bean id="seller1" class="Task010.classes.Seller">
+        <constructor-arg value="Seller"/>
+        <constructor-arg ref="viewer1"/>
+    </bean>
+    <bean id="viewer1" class="Task010.classes.Viewer">
+        <constructor-arg value="Viewer"/>
+        <constructor-arg ref="imax1"/>
+    </bean>
+    <!--Task010-->
+
+    <!--Task012-->
+    <aop:aspectj-autoproxy/>
+
+    <bean id="senderSql" class="Task012.Sender">
+        <constructor-arg value="Bruce"/>
+    </bean>
+    <bean id="Check" class="Task012.Check"/>
+    <!--Task012-->
+
+    <!--Task013-->
+    <bean id="senderEmail" class="Task013.Sender">
+        <constructor-arg value="Clark"/>
+    </bean>
+    <bean id="ReallyEmail" class="Task013.ReallyEmail"/>
+    <!--Task013-->
+
+</beans>
