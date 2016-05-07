@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ComicsPageController {
     @RequestMapping("/comics")
     public String getComics(){
-        return "comics";
+        return "/client_comics";
     }
 }

@@ -32,20 +32,12 @@
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="home.ftl"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/home"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li><a href="/home">Home</a></li>
 					<li class="active"><a href="/about">About</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="/marvel">MARVEL</a></li>
-							<li><a href="/dc">DC</a></li>
-						</ul>
-					</li>
-					<li><a href="/contact">Contact</a></li>
 					<li><a class="btn" href="/login">SIGN IN / SIGN UP</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -59,7 +51,7 @@
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="home.ftl">Home</a></li>
+			<li><a href="/home">Home</a></li>
 			<li class="active">About</li>
 		</ol>
 
@@ -156,8 +148,6 @@
 							<p class="simplenav">
 								<a href="/home">Home</a> |
 								<a href="#">About</a> |
-								<a href="/marvel">Choose</a> |
-								<a href="/contact">Contact</a> |
 								<b><a href="/register/client">Sign up</a></b>
 							</p>
 						</div>

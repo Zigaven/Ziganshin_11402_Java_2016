@@ -20,9 +20,7 @@ $(document).ready(function () {
                 required: true,
                 email: true
             },
-            age: {
-                required: true
-            },
+
             password: {
                 required: true,
                 minlength: 8,

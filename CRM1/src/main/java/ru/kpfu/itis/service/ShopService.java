@@ -14,11 +14,11 @@ import java.util.List;
 public interface ShopService {
     Page<ShopEntity> getAllShops(PageRequest pageRequest);
 
-    BigInteger getAllSalary();
+//    BigInteger getAllSalary();
+//
+//    BigInteger getAllLease();
 
-    BigInteger getAllLease();
-
-    ShopEntity getOneById(Integer id);
+    ShopEntity getOneById(Long id);
 
     void createNewShop(ShopForm form);
 

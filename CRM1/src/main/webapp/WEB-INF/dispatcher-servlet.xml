@@ -8,6 +8,7 @@
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <context:component-scan base-package="ru.kpfu.itis.controller"/>
+    <context:component-scan base-package="ru.kpfu.itis.view"/>
 
     <mvc:annotation-driven/>
 
@@ -31,6 +32,13 @@
         <property name="suffix" value=".ftl"/>
         <property name="contentType" value="text/html;charset=UTF-8"/>
         <property name="cache" value="false"/>
+    </bean>
+
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="order" value="1"></property>
+        <property name="basename" value="views"></property>
     </bean>
 
 </beans>

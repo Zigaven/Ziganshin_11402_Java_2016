@@ -16,6 +16,7 @@ public class RegShopToUser {
         shopEntity.setCity(form.getCity());
         shopEntity.setAdress(form.getAdress());
         shopEntity.setLease(form.getLease());
+        shopEntity.setTelephone(form.getTelephone());
         shopEntity.setName(form.getName());
         return shopEntity;
     }

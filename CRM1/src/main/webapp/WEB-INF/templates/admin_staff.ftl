@@ -37,7 +37,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/admin/home">Home</a></li>
+                <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/shop">Shops</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
@@ -46,7 +46,7 @@
                         <li><a href="/admin/profit">Profit</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Staff</a></li>
+                <li class="active"><a href="#">Staff</a></li>
                 <li><a href="/admin/comics">Comics</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -54,17 +54,27 @@
 </div>
 <!-- /.navbar -->
 <header id="head" class="secondary"></header>
+<br>
+<br>
+
+<a class="btn btn-default btn-lg" role="button" href="/admin/add_staff">Add Staff</a>
 
 <!--LIST -->
 <ul class="dbl-border">
-    <li><a href="#">Staff</a></li>
-    <li><a href="#">Staff</a></li>
-    <li><a href="#">Staff</a></li>
-    <li><a href="#">Staff</a></li>
-    <li><a href="#">Staff</a></li>
+<#list personnel.content as person>
+    <li><a href="/admin/staff/profile/${person.id}">${person.firstName} ${person.lastName}</a></li>
+</#list>
 </ul>
 <!--LIST-->
 
+<br>
+<#if page == 0>
+<a class="btn btn-default btn-lg" role="button" href="/admin/staff">Back</a>
+<#else>
+<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page - 1}">Back</a>
+</#if>
+
+<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page + 1}">Next</a>
 
 <footer id="footer" class="top-space">
 

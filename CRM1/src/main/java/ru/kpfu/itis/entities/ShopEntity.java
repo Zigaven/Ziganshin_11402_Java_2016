@@ -19,10 +19,10 @@ public class ShopEntity {
     @Column(name = "adress", nullable = false)
     private String adress;
 
-    @Column(name = "city", nullable = false, unique = true)
+    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "telephone", nullable = false)
+    @Column(name = "telephone", nullable = true)
     private String telephone;
 
     public Integer getLease() {

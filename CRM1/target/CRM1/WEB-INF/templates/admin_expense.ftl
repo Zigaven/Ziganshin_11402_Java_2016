@@ -37,12 +37,12 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/admin/home">Home</a></li>
+                <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/shop">Shops</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Expenses</a></li>
+                        <li class="active"><a href="#">Expenses</a></li>
                         <li><a href="/admin/profit">Profit</a></li>
                     </ul>
                 </li>

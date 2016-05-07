@@ -20,10 +20,12 @@
     <link rel="stylesheet" href="/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="/css/main.css">
 
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>
     <script src="/js/respond.min.js"></script>
+
     <![endif]-->
 </head>
 
@@ -35,20 +37,12 @@
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="home.ftl"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand" href="/home"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/marvel">MARVEL</a></li>
-                        <li><a href="/dc">DC</a></li>
-                    </ul>
-                </li>
-                <li><a href="/contact">Contact</a></li>
                 <li><a class="btn" href="/login">SIGN IN / SIGN UP</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -62,7 +56,7 @@
 <div class="container">
 
     <ol class="breadcrumb">
-        <li><a href="home.ftl">Home</a></li>
+        <li><a href="client_home.ftl">Home</a></li>
         <li class="active">Registration</li>
     </ol>
 
@@ -161,12 +155,12 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <label class="checkbox">
-                                        <input type="checkbox">
-                                        I've read the <a href="page_terms.html">Terms and Conditions</a>
+                                        <#--<input type="checkbox">-->
+                                        <#--I've read the <a href="page_terms.html">Terms and Conditions</a>-->
                                     </label>
                                 </div>
                                 <div class="col-lg-4 text-right">
-                                    <button class="btn btn-action" type="submit">Register</button>
+                                    <button class="btn btn-primary" type="submit">Register</button>
                                 </div>
                             </div>
                         </@sf.form>
@@ -237,8 +231,6 @@
                         <p class="simplenav">
                             <a href="/home">Home</a> |
                             <a href="/about">About</a> |
-                            <a href="/marvel">Choose</a> |
-                            <a href="/contact">Contact</a> |
                             <b><a href="#">Sign up</a></b>
                         </p>
                     </div>
@@ -258,12 +250,18 @@
 
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery-1.5.2.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/js/headroom.min.js"></script>
 <script src="/js/jQuery.headroom.min.js"></script>
 <script src="/js/template.js"></script>
 <script src="/js/registration-valid.js"></script>
+
+
 
 </body>
 </html>

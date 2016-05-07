@@ -8,6 +8,7 @@ import ru.kpfu.itis.entities.ShopEntity;
 import ru.kpfu.itis.form.ShopForm;
 import ru.kpfu.itis.repository.ShopRepository;
 import ru.kpfu.itis.service.ShopService;
+import ru.kpfu.itis.util.RegShopToUser;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -15,22 +16,16 @@ import java.util.List;
 /**
  * Created by ruslanzigansin on 27.04.16.
  */
-//@Service
-//public class ShopServiceImpl implements ShopService {
-//    @Autowired
-//    ShopRepository shopRepository;
-//
-//    @Override
-//    public Page<ShopEntity> getAllShops(PageRequest pageRequest) {
-//        return null;
-//    }
-//
-//    //
-////    @Override
-////    public List<OfficeEntity> getAllOffice() {
-////        return officeRepository.findAll();
-////    }
-////
+@Service
+public class ShopServiceImpl implements ShopService {
+    @Autowired
+    ShopRepository shopRepository;
+
+    @Override
+    public Page<ShopEntity> getAllShops(PageRequest pageRequest) {
+        return shopRepository.findAll(pageRequest);
+    }
+
 //    @Override
 //    public BigInteger getAllSalary() {
 //        return shopRepository.getAllSalary();
@@ -40,14 +35,16 @@ import java.util.List;
 //    public BigInteger getAllLease() {
 //        return shopRepository.getAllLease();
 //    }
-//
-//    @Override
-//    public ShopEntity getOneById(Integer id) {
-//        return shopRepository.findOneById(id);
-//    }
-//
-//    @Override
-//    public void createNewShop(ShopForm form) {
-//
-//    }
-//}
+
+    public ShopEntity getOneById(Long id) {
+        return shopRepository.findById(id);
+    }
+
+    @Override
+    public void createNewShop(ShopForm shopForm) {
+        ShopEntity shopEntity = RegShopToUser.transform(shopForm);
+        shopRepository.save(shopEntity);
+    }
+}
+
+

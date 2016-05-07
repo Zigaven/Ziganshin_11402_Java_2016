@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.kpfu.itis.form.RegisterForm;
-import ru.kpfu.itis.service.ClientService;
+import ru.kpfu.itis.service.UserService;
 
 import javax.validation.Valid;
 
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegisterPageController {
     @Autowired
-    ClientService clientService;
+    UserService userService;
 
     @RequestMapping(value = "/client", method = RequestMethod.GET)
     public String getClientRegistrationPage(Model model){
@@ -34,7 +34,7 @@ public class RegisterPageController {
             return "register";
         }
 
-        clientService.registerClient(registerForm);
+        userService.createUser(registerForm);
         return "redirect:/login";
     }
 }

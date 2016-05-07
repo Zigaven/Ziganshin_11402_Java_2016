@@ -8,20 +8,20 @@
 
     <title>Home</title>
 
-    <link rel="shortcut icon" href="images/gt_favicon.png">
+    <link rel="shortcut icon" href="/images/gt_favicon.png">
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Custom styles for our template -->
-    <link rel="stylesheet" href="css/bootstrap-theme.css" media="screen" >
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css" media="screen" >
+    <link rel="stylesheet" href="/css/main.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -32,20 +32,12 @@
         <div class="navbar-header">
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/marvel">MARVEL</a></li>
-                        <li><a href="/dc">DC</a></li>
-                    </ul>
-                </li>
-                <li><a href="/contact">Contact</a></li>
                 <li><a class="btn" href="/login">SIGN IN / SIGN UP</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -59,7 +51,7 @@
         <div class="row">
             <h1 class="lead">AWESOME,COOL,WONDERFULL</h1>
             <p class="tagline">PROGRESSUS: welcome to our site where you can find more comics</a></p>
-            <p><a class="btn btn-default btn-lg" role="button" href="/about">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD ONE RANDOM FREE COMICS</a></p>
+            <p><a class="btn btn-default btn-lg" role="button" href="/about">MORE INFO</a> <a class="btn btn-action btn-lg" role="button" href="generate/pdf.htm">DOWNLOAD ONE FREE COMICS</a></p>
         </div>
     </div>
 </header>
@@ -144,10 +136,6 @@
         </div>
     </div> <!-- /row -->
 
-    <div class="jumbotron top-space">
-        <h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
-        <p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>
-    </div>
 
 </div>	<!-- /container -->
 
@@ -219,8 +207,6 @@
                         <p class="simplenav">
                             <a href="#">Home</a> |
                             <a href="/about">About</a> |
-                            <a href="/marvel">Choose</a> |
-                            <a href="/contact">Contact</a> |
                             <b><a href="/register/client">Sign up</a></b>
                         </p>
                     </div>
@@ -247,8 +233,8 @@
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="js/headroom.min.js"></script>
-<script src="js/jQuery.headroom.min.js"></script>
-<script src="js/template.js"></script>
+<script src="/js/headroom.min.js"></script>
+<script src="/js/jQuery.headroom.min.js"></script>
+<script src="/js/template.js"></script>
 </body>
 </html>

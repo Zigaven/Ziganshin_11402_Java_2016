@@ -14,20 +14,44 @@ public class PersonnelProfileEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "specialty", nullable = false)
+    @Column(name = "specialty")
     private String specialty;
 
-    @Column(name = "hobby", nullable = false)
+    @Column(name = "hobby")
     private String hobby;
 
-    @Column(name = "favourite", nullable = false)
+    @Column(name = "favourite")
     private String favourite;
 
-    @Column(name = "salary", nullable = false)
+    @Column(name = "salary")
     private Integer salary;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone")
     private String phone;
+
+    @OneToOne
+    @JoinColumn(name = "shop_id")
+    private ShopEntity shop_id;
+
+    @ManyToOne
+    @JoinColumn(name = "staff_person")
+    private GeneralEntity generalEntity;
+
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
+
+    public ShopEntity getShop_id() {
+        return shop_id;
+    }
+
+    public void setShop_id(ShopEntity shop_id) {
+        this.shop_id = shop_id;
+    }
 
     public Integer getId() {
         return id;

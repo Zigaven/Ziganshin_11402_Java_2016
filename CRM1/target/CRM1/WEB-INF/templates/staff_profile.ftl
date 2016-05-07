@@ -8,20 +8,20 @@
 
     <title>Profile Client</title>
 
-    <link rel="shortcut icon" href="images/gt_favicon.png">
+    <link rel="shortcut icon" href="/images/gt_favicon.png">
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Custom styles for our template -->
-    <link rel="stylesheet" href="css/bootstrap-theme.css" media="screen">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="/css/main.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
     <![endif]-->
     <script type="text/css">
 
@@ -119,19 +119,19 @@
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="/home"><img src="images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="/home">Home</a></li>
-                <li class="active"><a href="/about">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/marvel">MARVEL</a></li>
-                        <li><a href="/dc">DC</a></li>
-                    </ul>
-                </li>
+                <li><a href="/staff/orders">Orders</a></li>
+                <li class="active"><a href="/staff/profile">Profile</a></li>
+            <#--<li class="dropdown">-->
+            <#--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>-->
+            <#--<ul class="dropdown-menu">-->
+            <#--<li><a href="/marvel">MARVEL</a></li>-->
+            <#--<li><a href="/dc">DC</a></li>-->
+            <#--</ul>-->
+            <#--</li>-->
             <#--<li><a href="contact">Contact</a></li>-->
             <#--<li><a class="btn" href="login.ftl">SIGN IN / SIGN UP</a></li>-->
             </ul>
@@ -146,7 +146,7 @@
 <div class="container">
 
     <ol class="breadcrumb">
-        <li><a href="home.ftl">Home</a></li>
+        <li><a href="/staff/orders">Orders</a></li>
         <li class="active">Profile</li>
     </ol>
 
@@ -169,84 +169,89 @@
 <!--profile-->
 
 <div class="row">
-    <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-        <div class="well profile">
-            <div class="col-sm-12">
-                <div class="col-xs-12 col-sm-8">
-                <#if profile??>
-                    <h2>${profile.firstName} ${profile.lastName}</h2>
-                </#if>
-                    <p><strong>Email: </strong> <#if profile??>
-                    ${profile.email}
-                    </#if> </p>
-                <p><strong>Specialty: </strong> Веб-дизайнер. </p>
-                <p><strong>Hobby: </strong> Книги, природа, активный отдых, сайтостроение, дизайн, верстка </p>
-                <p><strong>Favourite: </strong>
-                <span class="tags">HTML5</span>
-                <span class="tags">CSS3</span>
-                <span class="tags">jQuery</span>
-                <span class="tags">Bootstrap</span>
-                </p>
-                </div>
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="images/prof.jpg" alt="user" class="img-circle img-responsive">
-                    <#--<figcaption class="ratings">-->
-                    <#--<p>Рейтинг-->
-                    <#--<a href="#">-->
-                    <#--<span class="fa fa-star"></span>-->
-                    <#--</a>-->
-                    <#--<a href="#">-->
-                    <#--<span class="fa fa-star"></span>-->
-                    <#--</a>-->
-                    <#--<a href="#">-->
-                    <#--<span class="fa fa-star"></span>-->
-                    <#--</a>-->
-                    <#--<a href="#">-->
-                    <#--<span class="fa fa-star"></span>-->
-                    <#--</a>-->
-                    <#--<a href="#">-->
-                    <#--<span class="fa fa-star-o"></span>-->
-                    <#--</a>-->
-                    <#--</p>-->
-                    <#--</figcaption>-->
-                    </figure>
-                </div>
-            </div>
-            <div class="col-xs-12 divider text-center">
-            <#--<div class="col-xs-12 col-sm-4 emphasis">-->
-            <#--<h2><strong> 32,4K </strong></h2>-->
-            <#--<p>-->
-            <#--<small>Подписчиков</small>-->
+    <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" style="min-height:20px;padding:19px;margin-bottom:20px;background-color:#f5f5f5;border:1px solid #e3e3e3;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.05);box-shadow:inset 0 1px 1px rgba(0,0,0,.05)>
+        <div class=" well profile
+    ">
+    <div class="col-sm-12">
+        <div class="col-xs-12 col-sm-8">
+        <#if profile??>
+            <h2>${profile.firstName} ${profile.lastName}</h2>
+        </#if>
+            <p><strong>Email: </strong> <#if profile??>
+            ${profile.email}
+            </#if> </p>
+        <#--<p><strong>Specialty: </strong> Веб-дизайнер. </p>-->
+        <#--<p><strong>Hobby: </strong> Книги, природа, активный отдых, сайтостроение, дизайн, верстка </p>-->
+        <#--<p><strong>Favourite: </strong>-->
+        <#--<span class="tags">HTML5</span>-->
+        <#--<span class="tags">CSS3</span>-->
+        <#--<span class="tags">jQuery</span>-->
+        <#--<span class="tags">Bootstrap</span>-->
+        <#--</p>-->
+        <#if personnel??>
+            <p>Name: ${personnel.firstName}</p>
+            <p>Lastname: ${personnel.lastName}</p>
+        </#if>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <figure>
+                <img src="/images/prof.jpg" alt="user" class="img-circle img-responsive">
+            <#--<figcaption class="ratings">-->
+            <#--<p>Рейтинг-->
+            <#--<a href="#">-->
+            <#--<span class="fa fa-star"></span>-->
+            <#--</a>-->
+            <#--<a href="#">-->
+            <#--<span class="fa fa-star"></span>-->
+            <#--</a>-->
+            <#--<a href="#">-->
+            <#--<span class="fa fa-star"></span>-->
+            <#--</a>-->
+            <#--<a href="#">-->
+            <#--<span class="fa fa-star"></span>-->
+            <#--</a>-->
+            <#--<a href="#">-->
+            <#--<span class="fa fa-star-o"></span>-->
+            <#--</a>-->
             <#--</p>-->
-            <#--<button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Подписатся-->
-            <#--</button>-->
-            <#--</div>-->
-            <#--<div class="col-xs-12 col-sm-4 emphasis">-->
-            <#--<h2><strong>723</strong></h2>-->
-            <#--<p>-->
-            <#--<small>Записей</small>-->
-            <#--</p>-->
-            <#--<button class="btn btn-info btn-block"><span class="fa fa-user"></span> Профиль</button>-->
-            <#--</div>-->
-            <#--<div class="col-xs-12 col-sm-4 emphasis">-->
-            <#--<h2><strong>74</strong></h2>-->
-            <#--<p>-->
-            <#--<small>Работы</small>-->
-            <#--</p>-->
-            <div class="btn-group dropup btn-block">
-            <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Опции</button>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-            </button>
-                <ul class="dropdown-menu text-left" role="menu">
-                    <li><a href="#"><span class="fa fa-envelope pull-right"></span>Edit Profile</a></li>
-
-                </ul>
-            </div>
+            <#--</figcaption>-->
+            </figure>
         </div>
     </div>
+    <div class="col-xs-12 divider text-center">
+    <#--<div class="col-xs-12 col-sm-4 emphasis">-->
+    <#--<h2><strong> 32,4K </strong></h2>-->
+    <#--<p>-->
+    <#--<small>Подписчиков</small>-->
+    <#--</p>-->
+    <#--<button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Подписатся-->
+    <#--</button>-->
+    <#--</div>-->
+    <#--<div class="col-xs-12 col-sm-4 emphasis">-->
+    <#--<h2><strong>723</strong></h2>-->
+    <#--<p>-->
+    <#--<small>Записей</small>-->
+    <#--</p>-->
+    <#--</div>-->
+    <#--<div class="col-xs-12 col-sm-4 emphasis">-->
+    <#--<h2><strong>74</strong></h2>-->
+    <#--<p>-->
+    <#--<small>Работы</small>-->
+    <#--</p>-->
+        <div class="btn-group dropup btn-block">
+            <#--<a href="/sta" <button class="btn btn-info" type="button"><span class="fa fa-gear"></span> Edit Profile</button>-->
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+        </div>
+        <div class="btn-group dropup btn-block">
+
+           <a href="/logout"><button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Log Out</button></a>
+        </div>
+    </div>
+</div>
 </div>
 </div>
 </div>
@@ -302,10 +307,7 @@
                 <div class="col-md-6 widget">
                     <div class="widget-body">
                         <p class="simplenav">
-                            <a href="/home">Home</a> |
-                            <a href="/about">About</a> |
-                            <a href="/marvel">Sidebar</a> |
-                            <a href="/contact">Contact</a> |
+                            <a href="/staff/orders">Orders</a> |
                             <b><a href="#">Profile</a></b>
                         </p>
                     </div>
@@ -314,9 +316,7 @@
                 <div class="col-md-6 widget">
                     <div class="widget-body">
                         <p class="text-right">
-                            Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/"
-                                                                             rel="designer">gettemplate</a>
-                        </p>
+                            Copyright &copy; 2016, Ziganshin Ruslan.</p>
                     </div>
                 </div>
 
@@ -329,9 +329,9 @@
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="js/headroom.min.js"></script>
-<script src="js/jQuery.headroom.min.js"></script>
-<script src="js/template.js"></script>
+<script src="/js/headroom.min.js"></script>
+<script src="/js/jQuery.headroom.min.js"></script>
+<script src="/js/template.js"></script>
 
 
 </body>

@@ -21,7 +21,7 @@ public class RegisterForm {
     @Size(min = 5, max = 20, message = "Max 20 symbols")
     private String lastName;
 
-    @Pattern(message = "Field can't be field and can't contain invalid characters", regexp = "^[a-zA-Z][a-zA-Z0-9-_\\.]{8,16}")
+    @Pattern(message = "Field can't be field and can't contain invalid characters", regexp = "^[a-zA-Z][a-zA-Z0-9-_\\.]{3,16}")
     private String login;
 
     @NotEmpty(message = "Field can't be empty")

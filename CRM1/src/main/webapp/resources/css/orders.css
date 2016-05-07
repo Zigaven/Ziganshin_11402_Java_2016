@@ -1,0 +1,113 @@
+.wrapper-dropdown-4 {
+    /* Размер и позиционирование */
+    position: relative;
+    width: 270px;
+    margin: 0 auto;
+    padding: 10px 10px 10px 30px;
+
+    /* Стили */
+    background: #fff;
+    border: 1px solid silver;
+    cursor: pointer;
+    outline: none;
+}
+
+.wrapper-dropdown-4:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #ffaa9f transparent;
+}
+.wrapper-dropdown-4 .dropdown {
+    /* Размер и позиционирование */
+    position: absolute;
+    top: 100%;
+    margin-top: 1px; /* граница оболочки */
+    left: -1px;
+    right: -1px;
+
+    /* Стили */
+    background: white;
+    border: 1px solid silver;
+    border-top: none;
+    list-style: none;
+    transition: all 0.3s ease-out;
+
+    opacity: 0;
+    pointer-events: none;
+}
+.wrapper-dropdown-4 .dropdown li {
+    position: relative;
+}
+
+.wrapper-dropdown-4 .dropdown li label {
+    display: block;
+    padding: 10px 10px 10px 30px;
+    border-bottom: 1px dotted #1ccfcf;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper-dropdown-4 .dropdown li:last-of-type label {
+    border: none;
+}
+
+.wrapper-dropdown-4 .dropdown li input /* Чеки */ {
+    position: absolute;
+    display: block;
+    right: 10px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+/* При наведении курсора*/
+
+.wrapper-dropdown-4 .dropdown li:hover label {
+    background: #f0f0f0;
+}
+
+.wrapper-dropdown-4 .dropdown li input:checked ~ label {
+    color: grey;
+    text-decoration: line-through;
+}
+/* Красные линии */
+.wrapper-dropdown-4 .dropdown:before,
+.wrapper-dropdown-4:before {
+    content: "";
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    border: 1px solid #ffaa9f;
+    border-top: none;
+    border-bottom: none;
+    z-index: 2;
+}
+
+/* Второй пример: */
+/* Градиенты для красной линии */
+
+.wrapper-dropdown-4 .dropdown,
+.wrapper-dropdown-4 {
+    background: linear-gradient(left, white 5%, #ffaa9f 5%, #ffaa9f 5.3%, white 5.3%, white 6.5%, #ffaa9f 6.5%, #ffaa9f 6.8%, white 6.8%);
+}
+
+.wrapper-dropdown-4 .dropdown li:hover label {
+    background: linear-gradient(left, #f0F0F0 5%, #ffaa9f 5%, #ffaa9f 5.3%, #f0F0F0 5.3%, #f0F0F0 6.5%, #ffaa9f 6.5%, #ffaa9f 6.8%, #f0F0F0 6.8%);
+}
+/* Активное состояние */
+
+.wrapper-dropdown-4.active:after {
+    border-width: 0 6px 6px 6px;
+}
+
+.wrapper-dropdown-4.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}

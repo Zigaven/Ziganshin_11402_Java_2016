@@ -7,8 +7,9 @@ import javax.persistence.*;
 /**
  * Created by ruslanzigansin on 24.04.16.
  */
-@MappedSuperclass
-public abstract class GeneralEntity {
+@Entity
+@Table(name = "users")
+public class GeneralEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -20,7 +21,7 @@ public abstract class GeneralEntity {
     @Column(name = "lastname", nullable = false)
     private String lastName;
 
-    @Column(name = "login", nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String login;
 
     @Column(name = "email", nullable = false)
@@ -32,6 +33,16 @@ public abstract class GeneralEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Column(name = "enabled",scale = 1)
+    private int enabled;
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
 
     public Integer getId() {
         return id;

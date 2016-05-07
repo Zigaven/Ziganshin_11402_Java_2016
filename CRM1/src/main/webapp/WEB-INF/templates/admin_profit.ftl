@@ -40,7 +40,7 @@
                 hAxis: {title: 'Год'},
                 vAxis: {title: 'Тыс. тонн'}
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById('oil'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('profit'));
             chart.draw(data, options);
         }
     </script>
@@ -58,13 +58,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/admin/home">Home</a></li>
+                <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/shop">Shops</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="/admin/expense">Expenses</a></li>
-                        <li><a href="#">Profit</a></li>
+                        <li class="active"><a href="#">Profit</a></li>
                     </ul>
                 </li>
                 <li><a href="/admin/staff">Staff</a></li>
@@ -77,7 +77,7 @@
 <header id="head" class="secondary"></header>
 
 
-<div id="oil" style="width: 500px; height: 400px"></div>
+<div id="profit" style="width: 500%; height: 400%"></div>
 
 <footer id="footer" class="top-space">
 

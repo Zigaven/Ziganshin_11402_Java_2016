@@ -37,8 +37,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/admin/home">Home</a></li>
-                <li><a href="#">Shops</a></li>
+                <li><a href="/admin">Home</a></li>
+                <li class="active"><a href="#">Shops</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -55,16 +55,23 @@
 <!-- /.navbar -->
 <header id="head" class="secondary"></header>
 
+<br>
+<a class="btn btn-default btn-lg" role="button" href="/admin/add_shop">Add new shop</a>
+
 <!--LIST -->
 <ul class="dbl-border">
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">Shop</a></li>
-    <li><a href="#">Shop</a></li>
+<#list shop.content as shop>
+    <li><a href="/admin/shop/profile/${shop.id}">${shop.name}</a></li>
+</#list>
 </ul>
 <!--LIST-->
+<#if page == 0>
+<a class="btn btn-default btn-lg" role="button" href="/admin/shop">Back</a>
+<#else>
+<a class="btn btn-default btn-lg" role="button" href="/admin/shop/${page - 1}">Back</a>
+</#if>
 
+<a class="btn btn-default btn-lg" role="button" href="/admin/shop/${page + 1}">Next</a>
 
 <footer id="footer" class="top-space">
 

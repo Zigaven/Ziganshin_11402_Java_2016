@@ -1,19 +1,25 @@
 package ru.kpfu.itis.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.kpfu.itis.entities.ShopEntity;
+import ru.kpfu.itis.form.ShopForm;
 
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Created by ruslanzigansin on 27.04.16.
  */
 @Repository
-public interface ShopRepository {
+public interface ShopRepository extends JpaRepository<ShopEntity,Integer> {
 
-    BigInteger getAllSalary();
+    List<ShopEntity> findAll();
 
-    BigInteger getAllLease();
+//    BigInteger getAllSalary();
+//
+//    BigInteger getAllLease();
 
-    ShopEntity findOneById(Integer id);
+    ShopEntity findById(Long id);
+
 }

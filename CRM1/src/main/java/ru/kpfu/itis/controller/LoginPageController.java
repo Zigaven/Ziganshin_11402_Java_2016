@@ -14,12 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginPageController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getLogin() {
-        return "login";
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    public String getLoginPage(@RequestParam(value = "error", required = false) Boolean error, Model model) {
+    public String getLogin(@RequestParam(value = "error", required = false) Boolean error, Model model) {
         if (Boolean.TRUE.equals(error)) {
             model.addAttribute("error", error);
         }

@@ -37,7 +37,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/admin/home">Home</a></li>
+                <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/shop">Shops</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
@@ -47,96 +47,134 @@
                     </ul>
                 </li>
                 <li><a href="/admin/staff">Staff</a></li>
-                <li><a href="#">Comics</a></li>
+                <li class="active"><a href="#">Comics</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 <!-- /.navbar -->
 <header id="head" class="secondary"></header>
+<br>
+<br>
 
-<
+<a class="btn btn-default btn-lg" role="button" href="/admin/add_comics">Add new comics</a>
+
 <div class="row">
 
     <!-- Sidebar -->
     <aside class="col-md-4 sidebar sidebar-right">
-        <a class="btn btn-default btn-lg" role="button" href="/admin/add_comics">Add new comics</a>
+    <#list comics as comic>
+        <#if comic.name == "Superman">
+    <div class="row widget">
+            <div class="col-xs-12">
+            </div>
+        </div>
+        <div class="row widget">
+            <div class="col-xs-12">
+                <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                <p><img src="${comic.path}" alt=""></p>
+                <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
+            </div>
+        </div>
+        </#if>
+        <#if comic.name == "Batman">
 
         <div class="row widget">
             <div class="col-xs-12">
-                <h4>DC</h4>
-            </div>
-        </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>Name: Superman</h4>
-                <p><img src="/images/sup.jpg" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p>
-            </div>
-        </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>Name: Batman</h4>
-                <p><img src="/images/bat.jpg" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p></div>
-        </div>
+                <h4><b>${comic.publisher}</b> </h4>
+                <br>
+                <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                <p><img src="${comic.path}" alt=""></p>
+                <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
+                </div>
+               </div>
+
+        </#if>
+
+        </#list>
 
     </aside>
+
     <aside class="col-md-4 sidebar sidebar-left">
+    <#list comics as comic>
+        <#if comic.name == "Avengers">
+
+    <div class="row widget">
+            <div class="col-xs-12">
+                <h4><b>${comic.publisher}</b></h4>
+            </div>
+        </div>
+        <div class="row widget">
+            <div class="col-xs-12">
+                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                    <p><img src="${comic.path}" alt=""></p>
+                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
+            </div>
+        </div>
+        </#if>
+        <#if comic.name == "Spider-Man">
 
         <div class="row widget">
             <div class="col-xs-12">
-                <h4>Marvel</h4>
-            </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                    <p><img src="${comic.path}" alt=""></p>
+                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
+                </div>
         </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>Name: Avengers</h4>
-                <p><img src="/images/ave.jpg" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p>
-            </div>
-        </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>Spider-Man</h4>
-                <p><img src="/images/spi.jpg" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p></div>
-        </div>
+        </#if>
+        </#list>
 
     </aside>
+
     <!-- /Sidebar -->
     <aside class="col-md-4 sidebar sidebar-center">
+<#list comics as comic>
+    <#if comic.name == "Sin-City">
 
         <div class="row widget">
             <div class="col-xs-12">
-                <h4>Dark Horse</h4>
+
+                <h4><b>${comic.publisher}</b></h4>
             </div>
         </div>
         <div class="row widget">
             <div class="col-xs-12">
-                <h4>Name: Sin City</h4>
-                <p><img src="/images/sin.png" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p>
+                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                    <p><img src="${comic.path}" alt=""></p>
+                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
             </div>
         </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>HellBoy</h4>
-                <p><img src="/images/hell.jpg" alt=""></p>
-                <p> <h3>Price:</h3></p>
-                <p> <h3>Description:</h3></p> </div>
-        </div>
+    </#if>
+    <#if comic.name == "Hellboy">
 
-    </aside>
+    <div class="row widget">
+            <div class="col-xs-12">
+                <br>
+                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
+                    <p><img src="${comic.path}" alt=""></p>
+                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
+                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
+                </div>
+        </div>
+    </#if>
+
+</#list>
+
+</aside>
+
     <!-- Article main content -->
-
     <!-- /Article -->
 </div>
+
 
 <footer id="footer" class="top-space">
 
