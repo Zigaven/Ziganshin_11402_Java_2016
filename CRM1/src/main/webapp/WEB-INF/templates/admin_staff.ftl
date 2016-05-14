@@ -61,20 +61,20 @@
 
 <!--LIST -->
 <ul class="dbl-border">
-<#list personnel.content as person>
+<#list personnel as person>
     <li><a href="/admin/staff/profile/${person.id}">${person.firstName} ${person.lastName}</a></li>
 </#list>
 </ul>
 <!--LIST-->
 
 <br>
-<#if page == 0>
-<a class="btn btn-default btn-lg" role="button" href="/admin/staff">Back</a>
-<#else>
-<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page - 1}">Back</a>
-</#if>
+<#--<#if page == 0>-->
+<#--<a class="btn btn-default btn-lg" role="button" href="/admin/staff">Back</a>-->
+<#--<#else>-->
+<#--<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page - 1}">Back</a>-->
+<#--</#if>-->
 
-<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page + 1}">Next</a>
+<#--<a class="btn btn-default btn-lg" role="button" href="/admin/staff/${page + 1}">Next</a>-->
 
 <footer id="footer" class="top-space">
 

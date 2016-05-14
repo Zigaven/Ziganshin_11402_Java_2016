@@ -21,13 +21,18 @@ import java.util.List;
  * Created by ruslanzigansin on 24.04.16.
  */
 @Service
-public class AuthenticationProvide implements AuthenticationProvider{
+public class AuthenticationProvide implements AuthenticationProvider {
+
 
     @Autowired
     UserRepository userRepository;
 
 
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    static BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    public static BCryptPasswordEncoder getEncoder() {
+        return encoder;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -36,38 +41,30 @@ public class AuthenticationProvide implements AuthenticationProvider{
         GeneralEntity client = userRepository.findByLogin(login);
 
         if (client == null) {
-                throw new UsernameNotFoundException("user not found");
-            }
+            throw new UsernameNotFoundException("user not found");
+        }
 
 
         String password = authentication.getCredentials().toString();
 
-        if (client != null && client.getPassword() != null) {
-            if (!encoder.matches(password, client.getPassword())) {
-                throw new BadCredentialsException("invalid password");
-            }
+        if (!encoder.matches(password, client.getPassword())) {
+            System.out.println("password");
+            throw new BadCredentialsException("invalid password");
         }
 
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        if (client != null) {
-            authorities.add(new SimpleGrantedAuthority(client.getRole().toString()));
-        }
-
-
-        UsernamePasswordAuthenticationToken person = null;
-
-        if (client != null) {
-            person = new UsernamePasswordAuthenticationToken(client, null, authorities);
-        }
-
-        return person;
+        return authenticate((Authentication) client);
     }
 
+        public static Authentication authenticate(GeneralEntity client) {
+            List<GrantedAuthority> authorities = new ArrayList<>();
+
+            authorities.add(new SimpleGrantedAuthority(client.getRole().toString()));
+            return new UsernamePasswordAuthenticationToken(client, null, authorities);
+        }
 
 
+    @Override
     public boolean supports(Class<?> aClass) {
         return aClass.equals(UsernamePasswordAuthenticationToken.class);
     }
-
 }

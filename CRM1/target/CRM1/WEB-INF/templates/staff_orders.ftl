@@ -74,9 +74,12 @@
 </div>    <!-- /container -->
 <!--orders-->
 
+<#list orders as order>
+Client: ${order[0]} received this comics:${order[1]}
+</#list>
 <#--<pre>-->
 <div id="dd" class="wrapper-dropdown-4">
-    Сделать сегодня
+    Orders
     <ul class="dropdown">
         <li><input id="el-1" type="checkbox" name="el-1" value="donut" /><label for="el-1">Съесть пончик</label></li>
         <li><input id="el-2" type="checkbox" name="el-2" value="neighbour" /><label for="el-2">Шпионить за соседями</label></li>

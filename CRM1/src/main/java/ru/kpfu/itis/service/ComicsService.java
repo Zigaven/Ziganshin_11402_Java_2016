@@ -16,4 +16,6 @@ public interface ComicsService {
     List<ComicsEntity> getComicsByPublisher(String publisher);
 
     void addNewComics(ComicsForm comicsForm);
+
+    void addNewComics(ComicsEntity comicsEntity);
 }

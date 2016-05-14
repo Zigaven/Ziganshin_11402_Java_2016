@@ -33,7 +33,7 @@ public class PersonnelProfileEntity {
     @JoinColumn(name = "shop_id")
     private ShopEntity shop_id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "staff_person")
     private GeneralEntity generalEntity;
 

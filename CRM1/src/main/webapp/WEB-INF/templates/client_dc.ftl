@@ -109,7 +109,7 @@
                 <br>
                 <br>
             <a class="btn btn-action btn-lg" onclick="addMark('dc')" role="button" id="addButton">Choice for DC</a>
-            <h2 id="markDc">Votes are:0</h2>
+            <#--<h2 id="markDc">Votes are:0</h2>-->
         </article>
         <!-- /Article -->
 

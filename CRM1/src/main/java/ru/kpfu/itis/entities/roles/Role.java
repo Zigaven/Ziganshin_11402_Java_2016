@@ -1,10 +1,14 @@
 package ru.kpfu.itis.entities.roles;
 
+import jdk.nashorn.internal.ir.UnaryNode;
+
 /**
  * Created by ruslanzigansin on 24.04.16.
  */
 public enum Role {
     ROLE_CLIENT,
     ROLE_STAFF,
-    ROLE_ADMIN
+    ROLE_ADMIN;
+
+
 }

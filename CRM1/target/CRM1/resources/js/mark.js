@@ -1,9 +1,9 @@
-function addMark(comics){
+function addMark(pub){
     $.ajax({
-        url:"/client/mark",
-        method:"POST",
+        url:"/client",
+        method:"GET",
         data: {
-            comics: comics
+            pub: pub
         },
         success:function(resp){
             $('#markResult').text("Votes are:" + resp);
@@ -14,8 +14,8 @@ function addMark(comics){
 
 $(document).ready(function (comics) {
     $.ajax({
-        url:"/client/check/mark",
-        method:"POST",
+        url:"/client",
+        method:"GET",
         data: {
             comics: comics
         },
@@ -26,7 +26,7 @@ $(document).ready(function (comics) {
                 $('#addButton').hide();
             }
 
-            if (comics == "dc"){
+            if (pub == "dc"){
                 $('#markDc').text("Votes are:" + resp[1]);
             } else {
                 $('#markMarvel').text("Votes are:" + resp[1]);

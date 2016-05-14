@@ -57,7 +57,6 @@
 <header id="head" class="secondary"></header>
 
 <!-- container -->
-<div class="container">
 
     <ol class="breadcrumb">
         <li><a href="client_home.ftl">Home</a></li>
@@ -83,149 +82,85 @@
         </aside>
 
         <aside class="col-md-4 sidebar sidebar-center" id="res">
-        <#--<#list comics as comic>-->
-            <#--<#if comic.publisher == "DC">-->
 
-                <#--<div class="row widget">-->
-                    <#--<div class="col-xs-12" id="com_pub">-->
-                        <#--<h4><b>${comic.publisher}</b></h4>-->
-                    <#--</div>-->
-                <#--</div>-->
-                <#--<div class="row widget">-->
-                    <#--<div class="col-xs-12" id="com_info">-->
-                        <#--<h4>Name:</h4>-->
-                        <#--<h3><b>${comic.name}</b></h3>-->
-                        <#--<p><img src="${comic.path}" alt=""></p>-->
-                        <#--<p> <h4>Price:</h4>-->
-                        <#--<p>-->
-                        <#--<h3><b>${comic.price}</b></h3></p>-->
-                        <#--<p> <h4>Description:</h4>-->
-                        <#--<p>-->
-                        <#--<h3><b>${comic.description}</b></h3></p>-->
-                    <#--</div>-->
-                    <#--<a class="btn btn-action btn-lg" role="button">Order</a></p>-->
-                <#--</div>-->
-            <#--</#if>-->
-        <#--</#list>-->
         </aside>
 
-        <!-- /Sidebar -->
-    <aside class="col-md-4 sidebar sidebar-right">
-    <#--<#list comics as comic>-->
-    <#--<#if comic.name == "Sin-City">-->
-
-    <#--<div class="row widget">-->
-    <#--<div class="col-xs-12">-->
-
-    <#--<h4><b>${comic.publisher}</b></h4>-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--<div class="row widget">-->
-    <#--<div class="col-xs-12">-->
-    <#--<h4>Name:</h4><h3><b>${comic.name}</b></h3>-->
-    <#--<p><img src="${comic.path}" alt=""></p>-->
-    <#--<p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>-->
-    <#--<p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--</#if>-->
-    <#--<#if comic.name == "Hellboy">-->
-
-    <#--<div class="row widget">-->
-    <#--<div class="col-xs-12">-->
-    <#--<br>-->
-    <#--<h4>Name:</h4><h3><b>${comic.name}</b></h3>-->
-    <#--<p><img src="${comic.path}" alt=""></p>-->
-    <#--<p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>-->
-    <#--<p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>-->
-    <#--</div>-->
-    <#--</div>-->
-    <#--</#if>-->
-
-    <#--</#list>-->
-
-    </aside>
 
         <!-- Article main content -->
         <!-- /Article -->
     </div>
 
-    <footer id="footer" class="top-space">
 
-        <div class="footer1">
-            <div class="container">
-                <div class="row">
+<footer id="footer" class="top-space">
 
-                    <div class="col-md-3 widget">
-                        <h3 class="widget-title">Contact</h3>
-                        <div class="widget-body">
-                            <p>+234 23 9873237<br>
-                                <a href="mailto:#">some.email@somewhere.com</a><br>
-                                <br>
-                                Russia, Kazan, KFU
-                            </p>
-                        </div>
+    <div class="footer1">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 widget">
+                    <h3 class="widget-title">Contact</h3>
+                    <div class="widget-body">
+                        <p>+234 23 42342342<br>
+                            <a href="mailto:#">some.email@somewhere.com</a><br>
+                            <br>
+                            234 Russia, Kazan, KFU
+                        </p>
                     </div>
+                </div>
 
-                    <div class="col-md-3 widget">
-                        <h3 class="widget-title">Follow me</h3>
-                        <div class="widget-body">
-                            <p class="follow-me-icons">
-                                <a href="https://twitter.com"><i class="fa fa-twitter fa-2"></i></a>
-                                <a href="https://github.com"><i class="fa fa-github fa-2"></i></a>
-                                <a href="https://dribbble.com"><i class="fa fa-dribbble fa-2"></i></a>
-                                <a href="https://facebook.com"><i class="fa fa-facebook fa-2"></i></a>
-                            </p>
-                        </div>
+                <div class="col-md-3 widget">
+                    <h3 class="widget-title">Follow me</h3>
+                    <div class="widget-body">
+                        <p class="follow-me-icons">
+                            <a href="https://twitter.com"><i class="fa fa-twitter fa-2"></i></a>
+                            <a href="https://github.com"><i class="fa fa-github fa-2"></i></a>
+                            <a href="https://dribbble.com"><i class="fa fa-dribbble fa-2"></i></a>
+                            <a href="https://facebook.com"><i class="fa fa-facebook fa-2"></i></a>
+                        </p>
                     </div>
+                </div>
 
-                    <div class="col-md-6 widget">
-                        <h3 class="widget-title">Text widget</h3>
-                        <div class="widget-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam
-                                architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque
-                                voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad
-                                id expedita cupiditate repellendus possimus unde?</p>
-                            <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat
-                                provident assumenda labore soluta minima alias temporibus facere distinctio quas
-                                adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate
-                                reprehenderit architecto sint libero illo et hic.</p>
-                        </div>
+                <div class="col-md-6 widget">
+                    <h3 class="widget-title">Some info</h3>
+                    <div class="widget-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
+                        <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
                     </div>
+                </div>
 
-                </div> <!-- /row of widgets -->
-            </div>
+            </div> <!-- /row of widgets -->
         </div>
+    </div>
 
-        <div class="footer2">
-            <div class="container">
-                <div class="row">
+    <div class="footer2">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="simplenav">
-                                <a href="/client/home">Home</a> |
-                                <a href="/client/comics">Comics</a> |
-                                <a href="/client/marvel">Choose</a> |
-                                <a href="/client/contact">Contact</a> |
-                                <a href="/client/profile">Profile</a> |
-                            </p>
-                        </div>
+                <div class="col-md-6 widget">
+                    <div class="widget-body">
+                        <p class="simplenav">
+                            <a href="/client/home">Home</a> |
+                            <a href="#">Comics</a> |
+                            <a href="/client/marvel">Choose</a> |
+                            <a href="/client/contact">Contact</a> |
+                            <b><a href="/client/profile">Profile</a></b>
+                        </p>
                     </div>
+                </div>
 
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="text-right">
-                                Copyright &copy; 2016, Ziganshin Ruslan.
-                            </p>
-                        </div>
+                <div class="col-md-6 widget">
+                    <div class="widget-body">
+                        <p class="text-right">
+                            Copyright &copy; 2016, Ziganshin Ruslan.
+                        </p>
                     </div>
+                </div>
 
-                </div> <!-- /row of widgets -->
-            </div>
+            </div> <!-- /row of widgets -->
         </div>
-    </footer>
+    </div>
 
+</footer>
 
     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

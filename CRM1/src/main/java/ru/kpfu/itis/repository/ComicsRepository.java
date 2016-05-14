@@ -10,7 +10,7 @@ import java.util.List;
  * Created by ruslanzigansin on 02.05.16.
  */
 @Repository
-public interface ComicsRepository extends JpaRepository<ComicsEntity, Integer> {
-    ComicsEntity findById(Integer id);
+public interface ComicsRepository extends JpaRepository<ComicsEntity, Long> {
+//    ComicsEntity findById(Integer id);
     List<ComicsEntity> getComicsByPublisher(String publisher);
 }

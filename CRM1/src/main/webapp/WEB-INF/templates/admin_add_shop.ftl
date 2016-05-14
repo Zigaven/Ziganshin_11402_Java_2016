@@ -171,15 +171,6 @@
             <div class="row">
 
                 <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="simplenav">
-                            <a href="/home">Home</a> |
-                            <a href="/about">About</a> |
-                            <a href="/marvel">Choose</a> |
-                            <a href="/contact">Contact</a> |
-                            <b><a href="/register/client">Sign up</a></b>
-                        </p>
-                    </div>
                 </div>
 
                 <div class="col-md-6 widget">

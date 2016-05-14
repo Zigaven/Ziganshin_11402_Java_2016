@@ -11,9 +11,10 @@ function getComics(pub){
                 $("#res").text("");
                 console.log(resp);
                 console.log("!!!!");
+
                 for (var i = 0;i < resp.length;i++){
-                    $("#res").append("<div class='row widget'>" +
-                    "<div class='col-xs-12' id='com_pub'>" +
+                    $("#res").append("<form method='post' action='/orders/procces/'><div class='row widget'>" +
+                    "<input type= 'hidden' name = 'comicsId' value='" + resp[i].id+ "'><div class='col-xs-12' id='com_pub'>" +
                         "<h4><b>"+resp[i].publisher+"</b></h4>" +
                         "</div>" +
                         "</div>" +
@@ -21,12 +22,12 @@ function getComics(pub){
                         "<div class='col-xs-12' id='com_info'>" +
                         "<h4>Name:</h4>" +
                     "<h3><b>" + resp[i].name + "</b></h3>" +
-                    "<p><img src=" + 'resp[i].path' + "alt=''></p>" +
-                        "<p> <h4>Price:</h4><p>" +
+                    "<p><img src=" + resp[i].path + "></p>" +
+                        "<p><h4>Price:</h4><p>" +
                     "<h3><b>" +  resp[i].price + "</b></h3></p>" +
                     "<p><h4>Description:</h4><p>" +
                     "<h3><b>" + resp[i].description + "</b></h3></p></div>" +
-                    "<a class='btn btn-action btn-lg' role='button'>Order</a></p></div>")
+                    "<button type='submit' class='btn btn-action btn-lg' role='button'>Order</button></p></div></form>")
                 }
             }
         }

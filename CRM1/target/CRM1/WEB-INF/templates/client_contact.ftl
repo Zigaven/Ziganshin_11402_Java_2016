@@ -1,5 +1,3 @@
-<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,16 +81,16 @@
 								<input class="form-control" type="text" placeholder="Name">
 							</div>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Email">
+								<input class="form-control" type="text" placeholder="Email" required>
 							</div>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Phone">
+								<input class="form-control" type="text" placeholder="Phone" required>
 							</div>
 						</div>
 						<br>
 						<div class="row">
 							<div class="col-sm-12">
-								<textarea placeholder="Type your message here..." class="form-control" rows="9"></textarea>
+								<textarea placeholder="Type your message here..." class="form-control" rows="9" required></textarea>
 							</div>
 						</div>
 						<br>
@@ -102,7 +100,7 @@
 							<#--</div>-->
 							<div class="col-sm-6 text-right">
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-								<input class="btn btn-action" type="submit" value="Send message">
+								<a href="/client/contact/done" class="btn btn-action">Send Message</a>
 							</div>
 						</div>
 					</form>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,10 @@ import ru.kpfu.itis.entities.MarkEntity;
 import ru.kpfu.itis.response.ComicsResponse;
 import ru.kpfu.itis.service.ComicsService;
 import ru.kpfu.itis.service.MarkService;
+import ru.kpfu.itis.service.OrdersService;
 import ru.kpfu.itis.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,19 +34,20 @@ public class ClientGlobalController {
     @Autowired
     UserService userService;
 
-
+    @Autowired
+    OrdersService ordersService;
 
     @Autowired
     ComicsService comicsService;
 
-    @RequestMapping(value = "/profile",method = RequestMethod.GET)
-    public String getProfilePage(Model model){
-        GeneralEntity person = (GeneralEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String getProfilePage(Model model) {
+        GeneralEntity person = userService.getUserByLogin( ((UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         String role = String.valueOf(person.getRole());
         GeneralEntity generalEntity = userService.getUserEntityById(person.getId());
         model.addAttribute("profile", generalEntity);
 
-        if (role.equals("ROLE_ADMIN")){
+        if (role.equals("ROLE_ADMIN")) {
             return "redirect:/admin";
         }
 
@@ -55,15 +59,18 @@ public class ClientGlobalController {
 //        model.addAttribute("client", client);
         return "/client_profile";
     }
+
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     List<ComicsResponse> getComicsPage(@PathVariable java.util.Map<String, String> pathVariables, Model model, @RequestParam("pub") String publisher) {
         List<ComicsEntity> comicsEntity = comicsService.getAllComics();
         List<ComicsEntity> comicses = comicsService.getComicsByPublisher(publisher);
         List<ComicsResponse> comicsResp = new ArrayList<ComicsResponse>();
         model.addAttribute("comics", comicsEntity);
-        for (ComicsEntity comics: comicses) {
+        for (ComicsEntity comics : comicses) {
             ComicsResponse comicsResponse = new ComicsResponse();
+            comicsResponse.setId(comics.getId());
             comicsResponse.setName(comics.getName());
             comicsResponse.setDescription(comics.getDescription());
             comicsResponse.setPrice(comics.getPrice());
@@ -74,17 +81,20 @@ public class ClientGlobalController {
         System.out.println(comicsResp.size());
         return comicsResp;
     }
-    @RequestMapping(value = "/comics",method = RequestMethod.GET)
-    public String getComics() {
+
+    @RequestMapping(value = "/comics", method = RequestMethod.GET)
+    public String getComics(Model model, HttpSession session) {
+
         return "/client_comics";
     }
+
     @RequestMapping(value = "/marvel")
-    public String getMarvelPage(){
+    public String getMarvelPage() {
         return "/client_marvel";
     }
 
     @RequestMapping(value = "/dc")
-    public String getDCPage(){
+    public String getDCPage() {
         return "/client_dc";
     }
 
@@ -131,6 +141,11 @@ public class ClientGlobalController {
     @RequestMapping(value = "/contact")
     public String getContactPage() {
         return "/client_contact";
+    }
+
+    @RequestMapping(value = "/contact/done")
+    public String getContactDone() {
+        return "/client_contact_done";
     }
 
     @RequestMapping(value = {"/", "/home", "/index"}, method = RequestMethod.GET)

@@ -3,12 +3,12 @@ $(document).ready(function () {
         rules: {
             firstname: {
                 required: true,
-                minlength: 2,
+                minlength: 3,
                 maxlength: 20
             },
             surname: {
                 required: true,
-                minlength: 2,
+                minlength: 3,
                 maxlength: 20
             },
             login: {

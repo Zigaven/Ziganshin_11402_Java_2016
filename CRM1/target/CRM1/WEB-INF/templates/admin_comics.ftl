@@ -62,112 +62,23 @@
 <div class="row">
 
     <!-- Sidebar -->
-    <aside class="col-md-4 sidebar sidebar-right">
-    <#list comics as comic>
-        <#if comic.name == "Superman">
-    <div class="row widget">
-            <div class="col-xs-12">
-            </div>
-        </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                <p><img src="${comic.path}" alt=""></p>
-                <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-            </div>
-        </div>
-        </#if>
-        <#if comic.name == "Batman">
-
-        <div class="row widget">
-            <div class="col-xs-12">
-                <h4><b>${comic.publisher}</b> </h4>
-                <br>
-                <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                <p><img src="${comic.path}" alt=""></p>
-                <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-                </div>
-               </div>
-
-        </#if>
-
-        </#list>
-
-    </aside>
-
     <aside class="col-md-4 sidebar sidebar-left">
-    <#list comics as comic>
-        <#if comic.name == "Avengers">
-
-    <div class="row widget">
-            <div class="col-xs-12">
-                <h4><b>${comic.publisher}</b></h4>
-            </div>
+        <div class="col-xs-12">
+            <a class="dropdown-toggle" data-toggle="dropdown">Publisher<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a class="btn btn-default btn-lg" role="button" onclick="getComics('Marvel')">Marvel</a>
+                </li>
+                <li><a class="btn btn-default btn-lg" role="button" onclick="getComics('DC')">DC</a>
+                </li>
+                <li><a class="btn btn-default btn-lg" role="button" onclick="getComics('Dark Horse')">Dark Horse</a>
+                </li>
+            </ul>
         </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                    <p><img src="${comic.path}" alt=""></p>
-                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-            </div>
-        </div>
-        </#if>
-        <#if comic.name == "Spider-Man">
-
-        <div class="row widget">
-            <div class="col-xs-12">
-                <br>
-                <br>
-                <br>
-                <br>
-                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                    <p><img src="${comic.path}" alt=""></p>
-                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-                </div>
-        </div>
-        </#if>
-        </#list>
 
     </aside>
 
     <!-- /Sidebar -->
-    <aside class="col-md-4 sidebar sidebar-center">
-<#list comics as comic>
-    <#if comic.name == "Sin-City">
-
-        <div class="row widget">
-            <div class="col-xs-12">
-
-                <h4><b>${comic.publisher}</b></h4>
-            </div>
-        </div>
-        <div class="row widget">
-            <div class="col-xs-12">
-                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                    <p><img src="${comic.path}" alt=""></p>
-                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-            </div>
-        </div>
-    </#if>
-    <#if comic.name == "Hellboy">
-
-    <div class="row widget">
-            <div class="col-xs-12">
-                <br>
-                    <h4>Name:</h4><h3><b>${comic.name}</b></h3>
-                    <p><img src="${comic.path}" alt=""></p>
-                    <p> <h4>Price:</h4><h3><b>${comic.price}</b></h3></p>
-                    <p> <h4>Description:</h4><h3><b>${comic.description}</b></h3></p>
-                </div>
-        </div>
-    </#if>
-
-</#list>
+    <aside class="col-md-4 sidebar sidebar-center" id="res">
 
 </aside>
 
@@ -256,5 +167,7 @@
 <script src="/js/headroom.min.js"></script>
 <script src="/js/jQuery.headroom.min.js"></script>
 <script src="/js/template.js"></script>
+<script src="/js/comicsForAdmin.js"></script>
+
 </body>
 </html>

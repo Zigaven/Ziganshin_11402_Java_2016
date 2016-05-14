@@ -5,18 +5,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.kpfu.itis.entities.ComicsEntity;
 import ru.kpfu.itis.entities.GeneralEntity;
 import ru.kpfu.itis.entities.PersonnelProfileEntity;
 import ru.kpfu.itis.entities.ShopEntity;
+import ru.kpfu.itis.entities.roles.Role;
 import ru.kpfu.itis.form.ProfileForm;
 import ru.kpfu.itis.form.RegisterForm;
 import ru.kpfu.itis.form.ShopForm;
+import ru.kpfu.itis.repository.StaffRepository;
+import ru.kpfu.itis.response.ComicsResponse;
 import ru.kpfu.itis.service.ComicsService;
 import ru.kpfu.itis.service.PersonnelProfileService;
 import ru.kpfu.itis.service.ShopService;
@@ -24,6 +27,10 @@ import ru.kpfu.itis.service.UserService;
 import ru.kpfu.itis.util.PersonnelProfileFormValid;
 
 import javax.validation.Valid;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,7 +39,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminPageController {
-
     @Autowired
     UserService userService;
 
@@ -67,13 +73,13 @@ public class AdminPageController {
     @RequestMapping(value = {"/staff", "/staff/{page}"}, method = RequestMethod.GET)
     public String getStaffPage(@PathVariable java.util.Map<String, String> pathVariables, Model model) {
 
-        int page = 0;
-        if (pathVariables.containsKey("page")) page = Integer.parseInt(pathVariables.get("page"));
+//        int page = 0;
+//        if (pathVariables.containsKey("page")) page = Integer.parseInt(pathVariables.get("page"));
 
-        Page<GeneralEntity> personnelEntities = userService.getAllUsers(new PageRequest(page, 5));
+        List<GeneralEntity> personnelEntities = userService.findAllByRole(Role.ROLE_STAFF);
 
         model.addAttribute("personnel", personnelEntities);
-        model.addAttribute("page", page);
+//        model.addAttribute("page", page);
 
         return "admin_staff";
     }
@@ -90,17 +96,75 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/comics", method = RequestMethod.GET)
-    public String getComicsPage(@PathVariable java.util.Map<String, String> pathVariables, Model model) {
-        List<ComicsEntity> comicsEntity = comicsService.getAllComics();
-        model.addAttribute("comics", comicsEntity);
+    public String getComicsPage() {
+//        List<ComicsEntity> comicsEntity = comicsService.getAllComics();
+//        model.addAttribute("comics", comicsEntity);
 
         return "admin_comics";
     }
+    @RequestMapping(value = "/show" ,method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<ComicsResponse> getComics(@PathVariable java.util.Map<String, String> pathVariables, Model model, @RequestParam("pub") String publisher) {
+        List<ComicsEntity> comicsEntity = comicsService.getAllComics();
+        List<ComicsEntity> comicses = comicsService.getComicsByPublisher(publisher);
+        List<ComicsResponse> comicsResp = new ArrayList<ComicsResponse>();
+        model.addAttribute("comics", comicsEntity);
+        for (ComicsEntity comics : comicses) {
+            ComicsResponse comicsResponse = new ComicsResponse();
+            comicsResponse.setName(comics.getName());
+            comicsResponse.setDescription(comics.getDescription());
+            comicsResponse.setPrice(comics.getPrice());
+            comicsResponse.setPath(comics.getPath());
+            comicsResponse.setPublisher(comics.getPublisher());
+            comicsResp.add(comicsResponse);
+        }
+        System.out.println(comicsResp.size());
+        return comicsResp;
+    }
 
-    @RequestMapping(value = "/add_comics")
-    public String addComics() {
+    @RequestMapping(value = "/add_comics" , method = RequestMethod.GET)
+    public String addComics(Model model) {
+        List<ComicsEntity> comics = comicsService.getAllComics();
+        model.addAttribute("comics",comics);
         return "admin_add_comics";
     }
+
+    @RequestMapping(value = "/add_comics",method = RequestMethod.POST)
+    public String addComics(@RequestParam("file") MultipartFile file,
+                            RedirectAttributes redirectAttributes,@RequestParam("name") String name,
+                            @RequestParam("price") Integer price,@RequestParam("description") String description,
+                            @RequestParam("publisher") String publisher) {
+        if (!file.isEmpty()) {
+            try {
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(new File("/Users/ruslanzigansin/CRM1/target/CRM1/resources/images/"
+                                +file.getOriginalFilename())));
+                FileCopyUtils.copy(file.getInputStream(), stream);
+                stream.close();
+                redirectAttributes.addFlashAttribute("message",
+                        "You successfully uploaded " + file.getName() + "!");
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("message",
+                        "You failed to upload " + file.getName() + " => " + e.getMessage());
+            }
+        } else {
+            redirectAttributes.addFlashAttribute("message",
+                    "You failed to upload " + file.getName() + " because the file was empty");
+        }
+        String path = "/images/"+file.getOriginalFilename();
+
+        ComicsEntity comicsEntity = new ComicsEntity();
+        comicsEntity.setName(name);
+        comicsEntity.setPath(path);
+        comicsEntity.setDescription(description);
+        comicsEntity.setPrice(price);
+        comicsEntity.setPublisher(publisher);
+        comicsService.addNewComics(comicsEntity);
+
+        return "redirect:/admin/add_comics";
+    }
+
 
 
     @RequestMapping(value = "/add_staff", method = RequestMethod.GET)
@@ -135,25 +199,25 @@ public class AdminPageController {
         return "admin_staff_profile";
     }
 
-    @RequestMapping(value = "/staff/edit/profile/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/staff/profile/edit/{id}", method = RequestMethod.GET)
     public String updateStaffProfile(@PathVariable Integer id, Model model) {
 
-        GeneralEntity staffEntity = userService.getUserEntityById(id);
-        PersonnelProfileEntity profile = personnelProfileService.getStaffProfileEntityByStaffEntity(staffEntity);
-
-        if (profile == null) profile = new PersonnelProfileEntity();
-
-        model.addAttribute("staff", staffEntity);
-        model.addAttribute("profile", profile);
-        model.addAttribute("id", id);
-        model.addAttribute("salary", profile.getSalary() + "");
-
-        model.addAttribute("userform", new ProfileForm());
+//        GeneralEntity staffEntity = userService.getUserEntityById(id);
+//        PersonnelProfileEntity profile = personnelProfileService.getStaffProfileEntityByStaffEntity(staffEntity);
+//
+//        if (profile == null) profile = new PersonnelProfileEntity();
+//
+//        model.addAttribute("staff", staffEntity);
+//        model.addAttribute("profile", profile);
+//        model.addAttribute("id", id);
+//        model.addAttribute("salary", profile.getSalary() + "");
+//
+//        model.addAttribute("userform", new ProfileForm());
 
         return "admin_staff_profile_edit";
     }
 
-    @RequestMapping(value = "/staff/edit/profile/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/staff/profile/edit/{id}", method = RequestMethod.POST)
     public String updateStaffProfile(Model model, @PathVariable Integer id, @ModelAttribute("profileForm") @Valid ProfileForm form, BindingResult result) {
 
         valid.validate(form, result);
@@ -161,15 +225,26 @@ public class AdminPageController {
         if (result.hasErrors()) {
             GeneralEntity staffEntity = userService.getUserEntityById(id);
             PersonnelProfileEntity profile = personnelProfileService.getStaffProfileEntityByStaffEntity(staffEntity);
+            if (profile==null){
+                profile = new PersonnelProfileEntity();
+//                profile.setStaff_person(staffEntity);
+                profile.setSpecialty(form.getSpecialty());
+                profile.setHobby(form.getHobby());
+                profile.setFavourite(form.getFavourite());
+                profile.setPhone(form.getPhone());
+                profile.setSalary(form.getSalary());
+                personnelProfileService.saveNewProfile(form,profile ,staffEntity);
+            }
+            else {
+                model.addAttribute("staff", staffEntity);
+                model.addAttribute("profile", profile);
+                model.addAttribute("id", id);
+                model.addAttribute("salary", profile.getSalary() + "");
 
-            model.addAttribute("staff", staffEntity);
-            model.addAttribute("profile", profile);
-            model.addAttribute("id", id);
-            model.addAttribute("salary", profile.getSalary() + "");
+                model.addAttribute("userform", new ProfileForm());
+            }
 
-            model.addAttribute("userform", new ProfileForm());
-
-            return "admin_staff_profile_edit_page";
+            return "redirect:/admin/staff/profile/" + id;
         } else {
 
             GeneralEntity staffEntity = userService.getUserEntityById(id);

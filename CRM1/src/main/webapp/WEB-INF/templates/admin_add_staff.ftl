@@ -316,15 +316,6 @@
             <div class="row">
 
                 <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="simplenav">
-                            <a href="/home">Home</a> |
-                            <a href="/about">About</a> |
-                            <a href="/marvel">Sidebar</a> |
-                            <a href="/contact">Contact</a> |
-                            <b><a href="#">Profile</a></b>
-                        </p>
-                    </div>
                 </div>
 
                 <div class="col-md-6 widget">

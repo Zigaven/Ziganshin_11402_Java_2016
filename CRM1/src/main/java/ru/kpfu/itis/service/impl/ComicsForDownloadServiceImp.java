@@ -1,6 +1,7 @@
 package ru.kpfu.itis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.kpfu.itis.entities.ComicsForDownloadEntity;
 import ru.kpfu.itis.repository.ComicsForDownloadRepository;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Service
 public class ComicsForDownloadServiceImp implements ComicsForDownloadService {
+    @Qualifier("comicsForDownloadRepository")
     @Autowired
     ComicsForDownloadRepository comicsForDownloadRepository;
 
@@ -20,5 +22,10 @@ public class ComicsForDownloadServiceImp implements ComicsForDownloadService {
     @Override
     public ComicsForDownloadEntity getComicsByName(String name) {
         return comicsForDownloadRepository.getOneByName(name);
+    }
+
+    @Override
+    public List<ComicsForDownloadEntity> getComics() {
+        return comicsForDownloadRepository.findAll();
     }
 }

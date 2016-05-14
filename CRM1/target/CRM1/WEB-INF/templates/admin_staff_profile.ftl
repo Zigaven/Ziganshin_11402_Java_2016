@@ -183,12 +183,6 @@
     ">
     <div class="col-sm-12">
         <div class="col-xs-12 col-sm-8">
-        <#if profile??>
-            <h2>${profile.firstName} ${profile.lastName}</h2>
-        </#if>
-            <p><strong>Email: </strong> <#if profile??>
-            ${profile.email}
-            </#if> </p>
         <#--<p><strong>Specialty: </strong> Веб-дизайнер. </p>-->
         <#--<p><strong>Hobby: </strong> Книги, природа, активный отдых, сайтостроение, дизайн, верстка </p>-->
         <#--<p><strong>Favourite: </strong>-->
@@ -200,6 +194,14 @@
         <#if personnel??>
             <p>Name: ${personnel.firstName}</p>
             <p>Lastname: ${personnel.lastName}</p>
+            <p>Email: ${personnel.email}</p>
+
+        </#if>
+        <#if profile??>
+            <p>Favourite: ${profile.favourite}</p>
+            <p>Hobby: ${profile.hobby}</p>
+            <p>Phone: ${profile.phone}</p>
+
         </#if>
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
@@ -248,8 +250,9 @@
     <#--<p>-->
     <#--<small>Работы</small>-->
     <#--</p>-->
-        <div class="btn-group dropup btn-block">
-        <a href="/admin/staff/edit/profile"><button class="btn btn-info" type="button"><span class="fa fa-gear"></span> Edit Profile</button></a>
+
+    <div class="btn-group dropup btn-block">
+        <a href="/admin/staff/profile/edit/${id}"><button class="btn btn-info" type="button"><span class="fa fa-gear"></span> Edit Profile</button></a>
             &nbsp;
             &nbsp;
             &nbsp;

@@ -89,7 +89,7 @@
                                     <div class="col-lg-8">
                                         <label class="checkbox">
                                             Remember me
-                                            <input type="checkbox" name="remember-me-parameter" value="true">
+                                            <input type="checkbox" name="remember-me" value="true">
                                         </label>
                                     </div>
 									<div class="col-lg-4 text-right">

@@ -37,7 +37,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/client/comics">Comics</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
                     <ul class="dropdown-menu">

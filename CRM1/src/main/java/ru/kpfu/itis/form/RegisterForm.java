@@ -14,11 +14,11 @@ import javax.validation.constraints.Size;
  */
 public class RegisterForm {
     @NotEmpty(message = "Field can't be empty")
-    @Size(min = 5, max = 20, message = "Max 20 symbols")
+    @Size(min = 2, max = 20, message = "Max 20 symbols")
     private String firstName;
 
     @NotEmpty(message = "Field can't be empty")
-    @Size(min = 5, max = 20, message = "Max 20 symbols")
+    @Size(min = 2, max = 20, message = "Max 20 symbols")
     private String lastName;
 
     @Pattern(message = "Field can't be field and can't contain invalid characters", regexp = "^[a-zA-Z][a-zA-Z0-9-_\\.]{3,16}")

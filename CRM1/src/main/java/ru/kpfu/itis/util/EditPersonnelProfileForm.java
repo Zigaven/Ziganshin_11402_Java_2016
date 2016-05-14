@@ -28,7 +28,7 @@ public class EditPersonnelProfileForm {
         if (form.getSalary() != null) {
             personnelProfileEntity.setSalary(form.getSalary());
         }
-        personnelProfileEntity.setGeneralEntity(generalEntity);
+//        personnelProfileEntity.setStaff_person(generalEntity);
         personnelProfileEntity.setShop_id(shopEntity);
         personnelProfileEntity.setPhone(form.getPhone());
         personnelProfileEntity.setHobby(form.getHobby());

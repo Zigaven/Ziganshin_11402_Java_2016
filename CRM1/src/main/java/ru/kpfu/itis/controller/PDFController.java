@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.kpfu.itis.entities.ComicsForDownloadEntity;
 import ru.kpfu.itis.service.ComicsForDownloadService;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,15 +24,22 @@ public class PDFController {
 
     @Autowired
     ComicsForDownloadService comicsForDownloadService;
-    @RequestMapping( value = "/generate/pdf.htm", method = RequestMethod.GET)
+
+    @RequestMapping(value = {"/generate/pdf.htm", "client/generate/pdf.htm"}, method = RequestMethod.GET)
     ModelAndView generatePdf(HttpServletRequest request,
                              HttpServletResponse response) throws Exception {
         System.out.println("Calling generatePdf()...");
-        String name = "Avengers";
-        ComicsForDownloadEntity comics = comicsForDownloadService.getComicsByName(name);
+        List<ComicsForDownloadEntity> list = comicsForDownloadService.getComics();
+        ModelAndView modelAndView = new ModelAndView("pdfView");
 
-        ModelAndView modelAndView = new ModelAndView("pdfView", "command",comics);
+        for (ComicsForDownloadEntity n : list) {
+            String name = (String) n.getName();
+            ComicsForDownloadEntity comics = comicsForDownloadService.getComicsByName(name);
+            modelAndView.addObject(name, comics);
+        }
+
 
         return modelAndView;
+
     }
 }

@@ -31,11 +31,28 @@
         <property name="packagesToScan" value="ru.kpfu.itis.entities"/>
     </bean>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="300000" />
+    </bean>
+
     <!--Транзакции:-->
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+    <!--<bean id="multipartResolver"-->
+          <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
+
+    <!--<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<property name="mappings">-->
+            <!--<value>-->
+                <!--/upload.form=fileUploadController-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

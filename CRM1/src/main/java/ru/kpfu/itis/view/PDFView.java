@@ -1,6 +1,8 @@
 package ru.kpfu.itis.view;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +23,34 @@ public class PDFView extends AbstractPdfView {
 
     @Override
     protected void buildPdfDocument(Map model, Document document, PdfWriter pdfWriter, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        ComicsForDownloadEntity comics = (ComicsForDownloadEntity) model.get("command");
-        Image image = Image.getInstance("/Users/ruslanzigansin/CRM1/target/CRM1/resources"+ comics.getPath());
-        Paragraph header = new Paragraph(new Chunk("One comics for you" + comics.getName(), FontFactory.getFont(FontFactory.HELVETICA, 30)));
-        Paragraph by = new Paragraph();
-        by.add(image);
+        ArrayList<ComicsForDownloadEntity> arrayList = new ArrayList<>(model.values());
+        int k = 0;
+        ComicsForDownloadEntity comic = arrayList.get(0);
+
+        Paragraph header = new Paragraph(new Chunk("\t\t\tOne comics for you:\n" + comic.getName(), FontFactory.getFont(FontFactory.HELVETICA, 30)));
         document.add(header);
-        document.add(by);
+
+        try {
+            for (ComicsForDownloadEntity anArrayList : arrayList) {
+                k++;
+                String path = "/Users/ruslanzigansin/CRM1/target/CRM1/resources";
+                Image image = Image.getInstance(path + anArrayList.getPath());
+                Paragraph img1 = new Paragraph();
+                img1.add(image);
+//        for(int i = 2; i < 25; i++) {
+//            String im = "/images/its" + i + ".jpeg";
+//            comics.setPath(im);
+//            Paragraph img2 = new Paragraph();
+                document.add(img1);
+            }
+
+
+//        }
+
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

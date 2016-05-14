@@ -11,5 +11,7 @@ import java.util.List;
  */
 @Repository
 public interface ComicsForDownloadRepository extends JpaRepository<ComicsForDownloadEntity,Integer> {
+    List<ComicsForDownloadEntity> findAll();
     ComicsForDownloadEntity getOneByName(String name);
+
 }

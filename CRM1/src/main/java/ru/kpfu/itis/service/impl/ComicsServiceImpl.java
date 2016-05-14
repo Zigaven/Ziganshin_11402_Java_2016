@@ -25,7 +25,7 @@ public class ComicsServiceImpl implements ComicsService {
 
     @Override
     public ComicsEntity getOneById(Integer id) {
-        return comicsRepository.findById(id);
+        return comicsRepository.findOne(Long.valueOf(id));
     }
 
     @Override
@@ -39,5 +39,10 @@ public class ComicsServiceImpl implements ComicsService {
         ComicsEntity comicsEntity = RegComToUser.transform(comicsForm);
         comicsRepository.save(comicsEntity);
 
+    }
+
+    @Override
+    public void addNewComics(ComicsEntity comicsEntity) {
+        comicsRepository.save(comicsEntity);
     }
 }

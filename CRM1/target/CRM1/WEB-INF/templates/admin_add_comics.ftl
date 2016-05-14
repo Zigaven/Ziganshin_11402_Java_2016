@@ -1,3 +1,5 @@
+<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
+<#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,27 +81,41 @@
                         We need new comics!
                         <hr>
 
-                        <form class="form-signin" method="post" id="reg_form">
+                        <form class="form-signin" action="/admin/add_comics" method="post" id="reg_form" enctype="multipart/form-data">
+                            <div class="select">
+                                <label>
+                        <@sf.select path="comics" size='3'>
+                            <option value="" disabled>Select publisher</option>
+                            <#list comics as comic>
+                                <@sf.option value="${comic.publisher}">${comic.publisher}</@sf.option>
+                            </#list>
+                        </@sf.select>
+                                </label>
+                            </div>
                             <label>Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" class="form-control" placeholder="Name" name="login" required
+                            <input type="text" id="name" class="form-control" placeholder="Name" name="name" required
                                    autofocus>
                             <label>Price <span class="text-danger">*</span></label>
                             <input type="text" id="price" class="form-control" placeholder="Price" name="price"
                                    required>
+                            <#--<input type="text" id="publisher" class="form-control" placeholder="Publisher" name="publisher"-->
+                                   <#--required>-->
                             <label>Description <span class="text-danger">*</span></label>
                             <input type="text" id="description" class="form-control" placeholder="Description"
                                    name="description" required>
+                                File to upload: <input type="file" name="file"><br/>
                             <hr>
 
-                            <label><a class="btn btn-action btn-lg" role="button">Add comics</a></label>
-                            <br>
-
-
-
-
-
-
+                            <label><button type="submit" class="btn btn-action btn-lg" role="button">Add comics</button></label>
                         </form>
+
+                        <br>
+
+
+
+
+
+
 
                     </div>
                 </div>

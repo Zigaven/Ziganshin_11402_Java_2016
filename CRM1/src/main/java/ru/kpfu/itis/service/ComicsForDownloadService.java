@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface ComicsForDownloadService {
     ComicsForDownloadEntity getComicsByName(String name);
+    List<ComicsForDownloadEntity> getComics();
 }
