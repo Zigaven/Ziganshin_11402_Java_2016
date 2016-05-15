@@ -1,6 +1,7 @@
 package ru.kpfu.itis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.kpfu.itis.entities.GeneralEntity;
 import ru.kpfu.itis.entities.MarkEntity;
@@ -15,7 +16,9 @@ import java.util.List;
 @Service
 public class MarkServiceImpl implements MarkService {
 
+    @Qualifier("markRepository")
     @Autowired
+    public
     MarkRepository markRepository;
 
     @Override

@@ -16,6 +16,7 @@ import java.util.List;
 public class ComicsForDownloadServiceImpl implements ComicsForDownloadService {
     @Qualifier("comicsForDownloadRepository")
     @Autowired
+    public
     ComicsForDownloadRepository comicsForDownloadRepository;
 
 

@@ -1,6 +1,7 @@
 package ru.kpfu.itis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.kpfu.itis.entities.ComicsEntity;
 import ru.kpfu.itis.form.ComicsForm;
@@ -15,7 +16,9 @@ import java.util.List;
  */
 @Service
 public class ComicsServiceImpl implements ComicsService {
+    @Qualifier("comicsRepository")
     @Autowired
+    public
     ComicsRepository comicsRepository;
 
     @Override

@@ -14,6 +14,6 @@ public interface OrdersService {
 
     void saveNewOrder(GeneralEntity person, Integer comicsId);
 
-    List<OrdersEntity> findAll();
+    List<OrdersEntity> getAll();
 
 }

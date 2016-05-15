@@ -44,7 +44,7 @@ public class PersonnelGlobalController {
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public String getOrdersPage(Model model) {
         List<String[]> orders = new ArrayList<>();
-        for(OrdersEntity ordersEntity: ordersService.findAll()) {
+        for(OrdersEntity ordersEntity: ordersService.getAll()) {
             orders.add(new String[]{ordersEntity.getClientEntity().getFirstName(),ordersEntity.getComicsEntity().getName()});
             model.addAttribute("orders",orders);
         }

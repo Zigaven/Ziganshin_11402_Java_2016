@@ -20,6 +20,7 @@ public class PersonnelProfileServiceImpl implements PersonnelProfileService {
 
     @Qualifier("personnelProfileRepository")
     @Autowired
+    public
     PersonnelProfileRepository personnelProfileRepository;
 
     @Autowired

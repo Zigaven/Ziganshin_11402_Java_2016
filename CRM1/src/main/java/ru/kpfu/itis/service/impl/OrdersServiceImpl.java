@@ -19,6 +19,7 @@ public class OrdersServiceImpl implements OrdersService {
 
     @Qualifier("ordersRepository")
     @Autowired
+    public
     OrdersRepository ordersRepository;
 
     @Qualifier("comicsRepository")
@@ -39,7 +40,7 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    public List<OrdersEntity> findAll() {
+    public List<OrdersEntity> getAll() {
         return ordersRepository.findAll();
     }
 
