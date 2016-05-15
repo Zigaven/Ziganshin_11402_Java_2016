@@ -23,12 +23,11 @@ public class EditPersonnelProfileForm {
         }
 
 
-        personnelProfileEntity.setId(personnelProfileEntity.getId());
         personnelProfileEntity.setFavourite(form.getFavourite());
         if (form.getSalary() != null) {
             personnelProfileEntity.setSalary(form.getSalary());
         }
-//        personnelProfileEntity.setStaff_person(generalEntity);
+        personnelProfileEntity.setGeneralEntity(generalEntity);
         personnelProfileEntity.setShop_id(shopEntity);
         personnelProfileEntity.setPhone(form.getPhone());
         personnelProfileEntity.setHobby(form.getHobby());

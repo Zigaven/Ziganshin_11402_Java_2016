@@ -34,21 +34,16 @@
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand" href="/admin"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li><a href="/admin">Home</a></li>
                 <li class="active"><a href="#">Shops</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/admin/expense">Expenses</a></li>
-                        <li><a href="/admin/profit">Profit</a></li>
-                    </ul>
-                </li>
                 <li><a href="/admin/staff">Staff</a></li>
                 <li><a href="/admin/comics">Comics</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>

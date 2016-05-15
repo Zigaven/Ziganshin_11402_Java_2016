@@ -34,7 +34,7 @@
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand" href="/staff/profile"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
@@ -75,90 +75,84 @@
 <!--orders-->
 
 <#list orders as order>
-Client: ${order[0]} received this comics:${order[1]}
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Client: <b>${order[0]}</b> received this comics: <b>${order[1]}</b></h3><br>
 </#list>
 <#--<pre>-->
-<div id="dd" class="wrapper-dropdown-4">
-    Orders
-    <ul class="dropdown">
-        <li><input id="el-1" type="checkbox" name="el-1" value="donut" /><label for="el-1">Съесть пончик</label></li>
-        <li><input id="el-2" type="checkbox" name="el-2" value="neighbour" /><label for="el-2">Шпионить за соседями</label></li>
-        <li><input id="el-3" type="checkbox" name="el-3" value="T-rex" /><label for="el-3">Сходить в магазин</label></li>
-    </ul>
-</div>
 
-<footer id="footer" class="top-space">
 <#--</pre>-->
 
 <!--orders-->
 
 
 
-<footer id="footer">
-
-    <div class="footer1">
-        <div class="container">
-            <div class="row">
+    <footer id="footer" class="top-space">
 
 
-                <div class="col-md-3 widget">
-                    <h3 class="widget-title">Follow me</h3>
-                    <div class="widget-body">
-                        <p class="follow-me-icons clearfix">
-                            <a href="https://twitter.com"><i class="fa fa-twitter fa-2"></i></a>
-                            <a href="https://github.com"><i class="fa fa-github fa-2"></i></a>
-                            <a href="https://dribbble.com"><i class="fa fa-dribbble fa-2"></i></a>
-                            <a href="https://facebook.com"><i class="fa fa-facebook fa-2"></i></a>
-                        </p>
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <p>+234 23 9873237<br>
+                                <a href="mailto:#">some.email@somewhere.com</a><br>
+                                <br>
+                                Russia, Kazan, KFU
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 widget">
-                    <h3 class="widget-title">Text widget</h3>
-                    <div class="widget-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam
-                            architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque
-                            voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id
-                            expedita cupiditate repellendus possimus unde?</p>
-                        <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat
-                            provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci
-                            nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit
-                            architecto sint libero illo et hic.</p>
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Follow me</h3>
+                        <div class="widget-body">
+                            <p class="follow-me-icons clearfix">
+                                <a href="https://twitter.com"><i class="fa fa-twitter fa-2"></i></a>
+                                <a href="https://github.com"><i class="fa fa-github fa-2"></i></a>
+                                <a href="https://dribbble.com"><i class="fa fa-dribbble fa-2"></i></a>
+                                <a href="https://facebook.com"><i class="fa fa-facebook fa-2"></i></a>
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-            </div> <!-- /row of widgets -->
+                    <div class="col-md-6 widget">
+                        <h3 class="widget-title">Text widget</h3>
+                        <div class="widget-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
+                            <p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
         </div>
-    </div>
 
-    <div class="footer2">
-        <div class="container">
-            <div class="row">
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
 
-                <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="simplenav">
-                            <a href="#">Orders</a> |
-                            <b><a href="/staff/profile">Profile</a></b>
-                        </p>
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="/staff/orders">Orders</a> |
+                                <b><a href="/staff/profile">Profile</a></b>
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="text-right">
-                            Copyright &copy; 2016, Ziganshin Ruslan.
-                        </p>
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; 2016, Ziganshin Ruslan.</p>
+                        </div>
                     </div>
-                </div>
 
-            </div> <!-- /row of widgets -->
+                </div> <!-- /row of widgets -->
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/js/headroom.min.js"></script>

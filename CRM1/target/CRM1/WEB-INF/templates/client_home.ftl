@@ -32,7 +32,7 @@
         <div class="navbar-header">
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
@@ -143,11 +143,7 @@
             <p>Very difficult question. They are all amazing.</p>
         </div>
     </div> <!-- /row -->
-
-    <div class="jumbotron top-space">
-        <h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
-        <p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>
-    </div>
+    
 
 </div>	<!-- /container -->
 

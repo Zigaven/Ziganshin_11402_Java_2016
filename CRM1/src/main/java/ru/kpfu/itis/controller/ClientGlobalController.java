@@ -1,6 +1,5 @@
 package ru.kpfu.itis.controller;
 
-import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,7 +41,7 @@ public class ClientGlobalController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String getProfilePage(Model model) {
-        GeneralEntity person = userService.getUserByLogin( ((UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        GeneralEntity person = userService.getUserByLogin(((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         String role = String.valueOf(person.getRole());
         GeneralEntity generalEntity = userService.getUserEntityById(person.getId());
         model.addAttribute("profile", generalEntity);
@@ -98,12 +97,14 @@ public class ClientGlobalController {
         return "/client_dc";
     }
 
-    @RequestMapping(value = "/mark", method = RequestMethod.POST)
+    @RequestMapping(value = "/mark/{comics}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public
     @ResponseBody
-    Integer addMark(@RequestParam(value = "comics") String comics) {
-        GeneralEntity generalEntity = (GeneralEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    Integer addMark(@PathVariable(value = "comics") String comics) {
+        GeneralEntity generalEntity = userService.getUserByLogin(
+                ((UserDetails) SecurityContextHolder.getContext().
+                        getAuthentication().getPrincipal()).getUsername());
         MarkEntity markId = markService.getMarkEntityByGeneralEntity(generalEntity);
 
         if (markId == null) {
@@ -115,12 +116,14 @@ public class ClientGlobalController {
         return marks.size();
     }
 
-    @RequestMapping(value = "/check/mark", method = RequestMethod.POST)
+    @RequestMapping(value = "/check/mark/{comics}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public
     @ResponseBody
-    List checkMark(@RequestParam(value = "comics") String comics) {
-        GeneralEntity generalEntity = (GeneralEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    List checkMark(@PathVariable(value = "comics") String comics) {
+        GeneralEntity generalEntity = userService.getUserByLogin(
+                ((UserDetails) SecurityContextHolder.getContext().
+                        getAuthentication().getPrincipal()).getUsername());
         MarkEntity markId = markService.getMarkEntityByGeneralEntity(generalEntity);
 
         List list = new ArrayList();

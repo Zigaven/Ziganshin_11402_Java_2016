@@ -108,8 +108,9 @@
                 <#--eaque minima quae iure itaque corporis magni nesciunt eius sed dolor doloremque id quasi nisi.</p>-->
                 <br>
                 <br>
-            <a class="btn btn-action btn-lg" onclick="addMark('dc')" role="button" id="addButton">Choice for DC</a>
-            <#--<h2 id="markDc">Votes are:0</h2>-->
+            <a class="btn btn-action btn-lg" onclick="addDc()" role="button" id="addButton">Choice for DC</a>
+            <h2 id="markDc">Votes are:0</h2>
+
         </article>
         <!-- /Article -->
 

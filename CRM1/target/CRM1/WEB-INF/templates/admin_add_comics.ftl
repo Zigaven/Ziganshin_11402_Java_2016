@@ -36,21 +36,16 @@
             <!-- Button for smallest screens -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="index.html"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
+            <a class="navbar-brand" href="/admin"><img src="/images/logo.png" alt="Progressus HTML5 template"></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/shop">Shops</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Side<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/admin/expense">Expenses</a></li>
-                        <li><a href="/admin/profit">Profit</a></li>
-                    </ul>
-                </li>
                 <li><a href="/admin/staff">Staff</a></li>
                 <li class="active"><a href="/admin/comics">Comics</a></li>
+                <li><a href="/logout">Log Out</a></li>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -84,12 +79,12 @@
                         <form class="form-signin" action="/admin/add_comics" method="post" id="reg_form" enctype="multipart/form-data">
                             <div class="select">
                                 <label>
-                        <@sf.select path="comics" size='3'>
-                            <option value="" disabled>Select publisher</option>
-                            <#list comics as comic>
-                                <@sf.option value="${comic.publisher}">${comic.publisher}</@sf.option>
-                            </#list>
-                        </@sf.select>
+                                    <select name="publisher" size="1">
+                                        <option value="" disabled>Select Publisher</option>
+                                        <option value="Marvel">Marvel</option>
+                                        <option value="DC">DC</option>
+                                        <option value="Dark Horse">Dark Horse</option>
+                                    </select>
                                 </label>
                             </div>
                             <label>Name <span class="text-danger">*</span></label>
@@ -106,7 +101,7 @@
                                 File to upload: <input type="file" name="file"><br/>
                             <hr>
 
-                            <label><button type="submit" class="btn btn-action btn-lg" role="button">Add comics</button></label>
+                            <label><button type="submit" class="btn btn-action btn-lg" role="button" a href="/admin/comics">Add comics</button></label>
                         </form>
 
                         <br>

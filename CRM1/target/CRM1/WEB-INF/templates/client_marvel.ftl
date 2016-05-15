@@ -112,7 +112,7 @@
 				<p>Est, maiores, fuga sed nemo qui veritatis ducimus placeat odit quisquam dolorum. Rem, sunt, praesentium veniam maiores quia molestias eos fugit eaque ducimus veritatis provident assumenda. Quia, fuga, voluptates voluptatibus quis enim nam asperiores aliquam dignissimos ullam recusandae debitis iste.</p>
 				<br>
 				<br>
-                <a class="btn btn-action btn-lg" onclick="addMark('marvel')" role="button">Choice for Marvel</a>
+				<a class="btn btn-action btn-lg" onclick="addMarvel()" id = "addButton" role="button">Choice for Marvel</a>
 				<h2 id="markMarvel">Votes are:0</h2>
 			<#--<p>Dignissimos, beatae, praesentium illum eos autem perspiciatis? Minus, non, tempore, illo, mollitia exercitationem tempora quas harum odio dolores delectus quidem laudantium adipisci ducimus ullam placeat eaque minima quae iure itaque corporis magni nesciunt eius sed dolor doloremque id quasi nisi.</p>-->
 			</article>
@@ -199,8 +199,9 @@
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="js/headroom.min.js"></script>
-	<script src="js/jQuery.headroom.min.js"></script>
-	<script src="js/template.js"></script>
+    <script src="/js/headroom.min.js"></script>
+    <script src="/js/jQuery.headroom.min.js"></script>
+	<script src="/js/template.js"></script>
+	<script src="/js/mark.js"></script>
 </body>
 </html>
