@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.admin.RegisterStaffController">
+    <children>
+        <FlowPane layoutY="47.0" prefHeight="360.0" prefWidth="186.0" style="-fx-background-color: orange;">
+         <children>
+            <TextFlow prefHeight="188.0" prefWidth="176.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Best Store Of Comics &quot;Progressus&quot;" wrappingWidth="159.31640625">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+         </children>
+        </FlowPane>
+        <GridPane alignment="TOP_CENTER" layoutX="208.0" layoutY="47.0" prefHeight="360.0" prefWidth="258.0" style="-fx-background-color: orange;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="175.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="42.0" />
+                <RowConstraints maxHeight="64.0" minHeight="0.0" prefHeight="41.0" />
+                <RowConstraints maxHeight="137.0" minHeight="4.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="137.0" minHeight="4.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="174.0" minHeight="6.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="login" layoutX="34.0" layoutY="62.0" prefHeight="22.0" prefWidth="190.0" promptText="Login" GridPane.rowIndex="3" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleStaffRegister" prefHeight="27.0" prefWidth="190.0" text="Register new Staff" textFill="#212122" GridPane.rowIndex="8" />
+                <TextField fx:id="firstname" prefHeight="0.0" prefWidth="190.0" promptText="First name" GridPane.rowIndex="4" />
+                <TextField fx:id="lastname" layoutX="34.0" layoutY="155.0" prefHeight="23.0" prefWidth="190.0" promptText="Last name" GridPane.rowIndex="5" />
+                <PasswordField fx:id="password" promptText="Password" GridPane.rowIndex="6" />
+                <TextField fx:id="email" layoutX="34.0" layoutY="107.0" prefHeight="0.0" prefWidth="190.0" promptText="Email" GridPane.rowIndex="7" />
+                <Label fx:id="errorField" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="186.0" text="Register New Staff" textFill="#2f2929" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            </children>
+        </GridPane>
+      <FlowPane layoutY="-1.0" prefHeight="49.0" prefWidth="466.0" style="-fx-background-color: orange;">
+         <children>
+                <Button mnemonicParsing="false" onAction="#handleAddNewComicsPage" prefHeight="34.0" prefWidth="154.0" text="Add New Comics" textFill="#181a1b" />
+                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" text="Register New Staff" textFill="#0a0a0a" />
+                <Button mnemonicParsing="false" onAction="#handleComicsPage" prefHeight="34.0" prefWidth="154.0" text="Comics" textFill="#151617" />
+         </children>
+      </FlowPane>
+    </children>
+</Pane>

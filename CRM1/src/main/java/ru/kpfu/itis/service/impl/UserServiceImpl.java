@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void addNewUser(GeneralEntity generalEntity) {
+        userRepository.save(generalEntity);
+    }
+
+    @Override
     public List<GeneralEntity> findAllByRole(Enum Role) {
         return userRepository.findAllByRole(Role);
     }

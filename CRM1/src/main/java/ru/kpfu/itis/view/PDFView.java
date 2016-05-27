@@ -1,19 +1,14 @@
 package ru.kpfu.itis.view;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.PdfWriter;
+import org.springframework.web.servlet.view.document.AbstractPdfView;
+import ru.kpfu.itis.entities.ComicsForDownloadEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.lowagie.text.*;
-import com.sun.corba.se.spi.activation.Server;
-import org.springframework.web.servlet.view.document.AbstractPdfView;
-
-import com.lowagie.text.pdf.PdfWriter;
-import ru.kpfu.itis.entities.ComicsForDownloadEntity;
+import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -27,7 +22,7 @@ public class PDFView extends AbstractPdfView {
         int k = 0;
         ComicsForDownloadEntity comic = arrayList.get(0);
 
-        Paragraph header = new Paragraph(new Chunk("\t\t\tOne comics for you:\n" + comic.getName(), FontFactory.getFont(FontFactory.HELVETICA, 30)));
+        Paragraph header = new Paragraph(new Chunk("\t\t\t\t\t\tOne comics for you:\n" + comic.getName(), FontFactory.getFont(FontFactory.HELVETICA, 30)));
         document.add(header);
 
         try {

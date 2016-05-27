@@ -15,6 +15,8 @@ public interface UserService {
     @Transactional
     int createUser(RegisterForm registerForm);
 
+    void addNewUser(GeneralEntity generalEntity);
+
     List<GeneralEntity> findAllByRole(Enum Role);
 
     GeneralEntity getUserByLogin(String username);

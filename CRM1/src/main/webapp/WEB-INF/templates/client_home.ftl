@@ -59,7 +59,7 @@
         <div class="row">
             <h1 class="lead">AWESOME,COOL,WONDERFULL</h1>
             <p class="tagline">PROGRESSUS: welcome to our site where you can find more comics</a></p>
-            <p><a class="btn btn-default btn-lg" role="button" href="/about">MORE INFO</a> <a class="btn btn-action btn-lg" role="button" href="generate/pdf.htm">DOWNLOAD ONE FREE COMICS</a></p>
+            <p><a class="btn btn-default btn-lg" role="button" href="/client/contact">MORE INFO</a> <a class="btn btn-action btn-lg" role="button" href="generate/pdf.pdf">DOWNLOAD ONE FREE COMICS</a></p>
         </div>
     </div>
 </header>

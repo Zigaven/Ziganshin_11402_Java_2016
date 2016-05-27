@@ -13,6 +13,7 @@ import ru.kpfu.itis.service.ComicsService;
 import ru.kpfu.itis.service.OrdersService;
 import ru.kpfu.itis.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,11 +43,12 @@ public class PersonnelGlobalController {
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public String getOrdersPage(Model model) {
+    public String getOrdersPage(Model model, HttpSession session) {
         List<String[]> orders = new ArrayList<>();
+        session.setAttribute("orders",orders);
         for(OrdersEntity ordersEntity: ordersService.getAll()) {
             orders.add(new String[]{ordersEntity.getClientEntity().getFirstName(),ordersEntity.getComicsEntity().getName()});
-            model.addAttribute("orders",orders);
+            model.addAttribute("orders",session.getAttribute("orders"));
         }
         return "staff_orders";
     }

@@ -17,4 +17,5 @@ public interface UserRepository extends JpaRepository<GeneralEntity,Integer> {
     List<GeneralEntity> findAllByRole(Enum Role);
 
     GeneralEntity findOneByLogin(String email);
+
 }

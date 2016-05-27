@@ -25,6 +25,7 @@ import ru.kpfu.itis.service.ShopService;
 import ru.kpfu.itis.service.UserService;
 import ru.kpfu.itis.util.PersonnelProfileFormValid;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -192,12 +193,17 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/staff/profile/{id}", method = RequestMethod.GET)
-    public String getStaffProfile(@PathVariable("id") Integer id, Model model) {
+    public String getStaffProfile(@PathVariable("id") Integer id, Model model, HttpSession session) {
         GeneralEntity staffEntity = userService.getUserEntityById(id);
         PersonnelProfileEntity profile = personnelProfileService.getStaffProfileEntityByStaffEntity(staffEntity);
-        model.addAttribute("staff", staffEntity);
-        model.addAttribute("profile", profile);
-        model.addAttribute("id", id);
+        session.setAttribute("staff",staffEntity);
+        session.setAttribute("profile",profile);
+        session.setAttribute("id",id);
+
+
+        model.addAttribute("staff", session.getAttribute("staff"));
+        model.addAttribute("profile", session.getAttribute("profile"));
+        model.addAttribute("id", session.getAttribute("id"));
 
         return "admin_staff_profile";
     }
@@ -252,14 +258,15 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/shop/profile/{id}", method = RequestMethod.GET)
-    public String getShopProfile(@PathVariable("id") Long id, Model model) {
+    public String getShopProfile(@PathVariable("id") Long id, Model model, HttpSession session) {
         ShopEntity shopEntity = shopService.getOneById(id);
 
         if (shopEntity == null) {
             return "redirect:/admin/shop";
         }
+        session.setAttribute("shop",shopEntity);
 
-        model.addAttribute("shop", shopEntity);
+        model.addAttribute("shop", session.getAttribute("shop"));
 
         return "admin_shop_profile";
     }

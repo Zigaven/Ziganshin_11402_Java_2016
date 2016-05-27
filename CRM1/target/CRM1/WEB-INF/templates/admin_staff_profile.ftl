@@ -193,11 +193,11 @@
 
         </#if>
         <#if profile??>
-            <p>Specialty: ${profile.favourite}</p>
+            <p>Specialty: ${profile.specialty}</p>
             <p>Favourite: ${profile.favourite}</p>
             <p>Hobby: ${profile.hobby}</p>
             <p>Phone: ${profile.phone}</p>
-            <p>Favourite: ${profile.salary}</p>
+            <p>Salary: ${profile.salary}</p>
 
 
         </#if>

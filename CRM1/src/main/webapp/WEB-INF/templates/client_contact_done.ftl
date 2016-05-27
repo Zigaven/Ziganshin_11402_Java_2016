@@ -74,9 +74,11 @@
 
             <br>
             <h1>Thank you for your message!</h1>
-            <h2>Your opinion is very important to us</h2>
+            <h2>Your opinion is very important for us</h2>
             <a class="btn btn-default btn-lg" role="button" href="/client/home">Back</a>
-
+<br>
+<br>
+<br>
             <h6>It's a lie :]</h6>
         </article>
         <!-- /Article -->
