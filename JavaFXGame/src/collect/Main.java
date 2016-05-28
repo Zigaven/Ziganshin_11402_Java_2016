@@ -1,6 +1,6 @@
 package collect;
 
-import javafx.animation.AnimationTimer;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,18 +13,26 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.input.KeyCode;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Main extends Application {
+    boolean aDone = false;
+    boolean bDone = false;
+
+    Sprite comics;
     int i = 0;
 
 
@@ -32,17 +40,19 @@ public class Main extends Application {
         launch(args);
     }
 
+
     @Override
     public void start(Stage theStage) {
         theStage.setTitle("Ruslan, collect the Comics!");
         long start = System.currentTimeMillis();
 
         Group root = new Group();
-        Scene theScene = new Scene(root,512,512);
+        Scene theScene = new Scene(root, 512, 512);
         theStage.setScene(theScene);
 
         Canvas canvas = new Canvas(512, 512);
         root.getChildren().add(canvas);
+
 
         ArrayList<String> input = new ArrayList<String>();
 
@@ -78,13 +88,16 @@ public class Main extends Application {
         ArrayList<Sprite> comicsList = new ArrayList<Sprite>();
 
         for (int i = 0; i < 15; i++) {
-            Sprite comics = new Sprite();
+            comics = new Sprite();
             comics.setImage("collect/images/comics.png");
             double px = 350 * Math.random() + 50;
             double py = 350 * Math.random() + 50;
             comics.setPosition(px, py);
             comicsList.add(comics);
         }
+
+
+
 
         LongValue lastNanoTime = new LongValue(System.nanoTime());
 
@@ -97,16 +110,44 @@ public class Main extends Application {
                 lastNanoTime.value = currentNanoTime;
 
                 // game logic
-
+                long fin = System.currentTimeMillis();
+                long res = fin - start;
                 ruslan.setVelocity(0, 0);
-                if (input.contains("LEFT"))
+                if (input.contains("LEFT")) {
+                    ruslan.setImage("collect/images/ruslan.png");
                     ruslan.addVelocity(-50, 0);
-                if (input.contains("RIGHT"))
+                }
+                if (input.contains("RIGHT")) {
+                    ruslan.setImage("collect/images/ruslan.png");
                     ruslan.addVelocity(50, 0);
-                if (input.contains("UP"))
+                }
+                if (input.contains("UP")) {
+                    ruslan.setImage("collect/images/ruslan.png");
                     ruslan.addVelocity(0, -75);
-                if (input.contains("DOWN"))
+                }
+                if (input.contains("DOWN")) {
+                    ruslan.setImage("collect/images/ruslan.png");
                     ruslan.addVelocity(0, 75);
+                }
+                if ((10 - res / 1000) > 0) {
+                    if (input.contains("LEFT") && (input.contains("SHIFT"))) {
+                        ruslan.setImage("collect/images/sparta.png");
+                        ruslan.addVelocity(-100, 0);
+                    }
+                    if (input.contains("RIGHT") && (input.contains("SHIFT"))) {
+                        ruslan.setImage("collect/images/sparta.png");
+                        ruslan.addVelocity(100, 0);
+                    }
+                    if (input.contains("UP") && (input.contains("SHIFT"))) {
+                        ruslan.setImage("collect/images/sparta.png");
+                        ruslan.addVelocity(0, -100);
+                    }
+                    if (input.contains("DOWN") && (input.contains("SHIFT"))) {
+                        ruslan.setImage("collect/images/sparta.png");
+                        ruslan.addVelocity(0, 100);
+                    }
+                }
+
 
                 ruslan.update(elapsedTime);
 
@@ -122,13 +163,110 @@ public class Main extends Application {
                 }
                 if (score.value == 15) {
                     i = 1;
+                    stop();
                     what(theStage);
                 }
+                boolean b = false;
+                boolean a = false;
+                if((score.value == 5)&&(!aDone)) {
+                    a = true;
+                }
+                if((score.value == 10)&&(!bDone)) {
+                    b = true;
+                }
+
+                if(a) {
+                    aDone = true;
+                    System.out.println("AAAAA");
+                    Rectangle rect = new Rectangle(100, 40, 65, 65);
+
+
+                    rect.setArcHeight(20);
+                    Image image1 = new Image(getClass().getResourceAsStream("images/just.png"));
+                    ImagePattern imagePattern = new ImagePattern(image1);
+                    rect.setFill(imagePattern);
+                    rect.setArcWidth(20);
+
+
+
+                    TranslateTransition trans= TranslateTransitionBuilder.create()
+
+                            .duration(Duration.seconds(9))
+
+                            .node(rect)
+
+                            .fromX(-100)
+
+                            .toX(1500)
+
+                            .cycleCount(Timeline.INDEFINITE)
+
+                            .autoReverse(true)
+
+                            .build();
+
+                    trans.play();
+                    root.getChildren().add(rect);
+                }
+                if(b) {
+                    bDone = true;
+                    Rectangle rect = new Rectangle(100, 40, 65, 65);
+
+
+                    rect.setArcHeight(20);
+                    Image image1 = new Image(getClass().getResourceAsStream("images/good.png"));
+                    ImagePattern imagePattern = new ImagePattern(image1);
+                    rect.setFill(imagePattern);
+                    rect.setArcWidth(20);
+
+
+
+                    TranslateTransition trans= TranslateTransitionBuilder.create()
+
+                            .duration(Duration.seconds(9))
+
+                            .node(rect)
+
+                            .fromX(-100)
+
+                            .toX(1500)
+
+                            .cycleCount(Timeline.INDEFINITE)
+
+                            .autoReverse(true)
+
+                            .build();
+
+                    trans.play();
+
+                    root.getChildren().add(rect);
+                }
+
+                Image image1 = new Image(getClass().getResourceAsStream("images/ruslan.png"));
+                ImagePattern imagePattern = new ImagePattern(image1);
+                final Rectangle rectBasicTimeline = new Rectangle(300, 50, 100, 50);
+                rectBasicTimeline.setFill(imagePattern);
+
+                final Timeline timeline = new Timeline();
+                timeline.setCycleCount(Timeline.INDEFINITE);
+                timeline.setAutoReverse(true);
+                final KeyValue kv = new KeyValue(rectBasicTimeline.xProperty(), 100);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                timeline.getKeyFrames().add(kf);
+                timeline.play();
 
                 // render
 
                 gc.clearRect(0, 0, 512, 512);
                 ruslan.render(gc);
+                if (11 - (res / 1000) >= 0) {
+                    gc.fillText("Your nitro " + (String.valueOf(11 - (res / 1000))), 30, 500);
+                    gc.strokeText("Your nitro " + (String.valueOf(11 - (res / 1000))), 30, 500);
+                } else {
+                    gc.fillText("Your nitro " + 0, 30, 500);
+                    gc.strokeText("Your nitro " + 0, 30, 500);
+                }
+
 
                 for (Sprite comics : comicsList)
                     comics.render(gc);
@@ -137,11 +275,12 @@ public class Main extends Application {
                 gc.strokeText(pointsText, 360, 36);
                 long end = System.currentTimeMillis();
                 long min = end - start;
-                gc.fillText("Your time is " + (String.valueOf(20 - (min / 1000))), 30, 36);
-                gc.strokeText("Your time is " + (String.valueOf(20 - (min / 1000))), 30, 36);
+                gc.fillText("Your time is " + (String.valueOf(15 - (min / 1000))), 30, 36);
+                gc.strokeText("Your time is " + (String.valueOf(15 - (min / 1000))), 30, 36);
 
 
-                if ((min / 1000) == 1000) {
+                if (15 - (min / 1000) == 0) {
+                    stop();
                     what(theStage);
                 }
             }
@@ -154,11 +293,13 @@ public class Main extends Application {
     }
 
 
+    /////////////
     public void what(Stage stage) {
-        if(i == 1) {
+
+        System.out.println("check");
+        if (i == 1) {
             stage.setTitle("You did collect all comics!");
-        }
-        else  {
+        } else {
             stage.setTitle("Game Over!");
 
         }
@@ -177,15 +318,12 @@ public class Main extends Application {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                button.setOnKeyPressed(key -> {
-                  if (key.getCode().equals(KeyCode.ENTER)){
+                button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
                         start(stage);
-                            }
-                    if (key.getCode().equals(KeyCode.ESCAPE)){
-                        Platform.exit();
-                            }
-                        });
-                start(stage);
+                    }
+                });
 
             }
         });
@@ -201,15 +339,15 @@ public class Main extends Application {
         DropShadow effect2 = new DropShadow();
         effect2.setOffsetX(10);
         effect2.setOffsetY(5);
-        button.setOnAction(new EventHandler<ActionEvent>() {
+        button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                button.setOnKeyPressed(key -> {
-                    if (key.getCode().equals(KeyCode.ENTER)){
+                button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
                         Platform.exit();
                     }
                 });
-                Platform.exit();
 
             }
         });
@@ -218,9 +356,8 @@ public class Main extends Application {
         root.getChildren().add(button);
         root.getChildren().add(button2);
 
-        Scene theScene = new Scene(root,300,150);
+        Scene theScene = new Scene(root, 300, 150);
         stage.setScene(theScene);
-        stage.show();
 
     }
 }

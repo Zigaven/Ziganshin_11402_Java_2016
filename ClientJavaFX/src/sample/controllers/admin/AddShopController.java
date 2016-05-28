@@ -19,7 +19,7 @@ public class AddShopController extends AbstractController {
 
 
     public void handleShopAddAction(ActionEvent actionEvent) {
-        if (Validation.validateNumber(telephone.getText())) {
+        if (Validation.validateTelephone(telephone.getText()) && !(name.getText().isEmpty()) && !(city.getText().isEmpty()) && !(address.getText().isEmpty())) {
             ShopEntity shopEntity = new ShopEntity();
             shopEntity.setName(name.getText());
             shopEntity.setCity(city.getText());
@@ -32,7 +32,7 @@ public class AddShopController extends AbstractController {
             app.change("admin/Shop");
         }
         else    {
-            errorField.setText("Wrong number format");
+            errorField.setText("Invalid data");
         }
 
     }

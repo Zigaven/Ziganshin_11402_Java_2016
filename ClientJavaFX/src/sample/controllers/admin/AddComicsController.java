@@ -19,7 +19,7 @@ public class AddComicsController extends AbstractController {
 
 
     public void handleComicsAddAction(ActionEvent actionEvent) {
-        if (Validation.validateNumber(price.getText())) {
+        if (Validation.validateNumber(price.getText()) && !(name.getText().isEmpty()) && !(publisher.getText().isEmpty()) && !(description.getText().isEmpty())) {
             ComicsEntity comicsEntity = new ComicsEntity();
             comicsEntity.setName(name.getText());
             comicsEntity.setPrice(Integer.parseInt(price.getText()));
@@ -33,7 +33,7 @@ public class AddComicsController extends AbstractController {
             app.change("admin/Comics");
         }
         else    {
-            errorField.setText("Wrong number format");
+            errorField.setText("Invalid data");
         }
 
     }

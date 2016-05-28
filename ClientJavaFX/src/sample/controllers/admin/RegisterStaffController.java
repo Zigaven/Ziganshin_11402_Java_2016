@@ -23,7 +23,7 @@ public class RegisterStaffController extends AbstractController {
 
 
     public void handleStaffRegister(ActionEvent actionEvent) {
-        if (Validation.validateEmail(email.getText())) {
+        if (Validation.validateEmail(email.getText()) && !(login.getText().isEmpty()) && !(password.getText().isEmpty()) && !(firstname.getText().isEmpty()) && !(lastname.getText().isEmpty())) {
             GeneralEntity usersEntity = new GeneralEntity();
             usersEntity.setLogin(login.getText());
             usersEntity.setPassword(password.getText());
@@ -36,7 +36,7 @@ public class RegisterStaffController extends AbstractController {
             app.change("admin/staff");
         }
         else {
-            errorField.setText("Invalid email");
+            errorField.setText("Invalid data");
 
         }
 

@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+
 /**
  * Created by ruslanzigansin on 12.05.16.
  */
@@ -16,6 +17,8 @@ public class Sprite {
     private double width;
     private double height;
 
+
+
     public Sprite()
     {
         positionX = 0;
@@ -23,6 +26,8 @@ public class Sprite {
         velocityX = 0;
         velocityY = 0;
     }
+
+
 
     public void setImage(Image i)
     {
@@ -81,4 +86,6 @@ public class Sprite {
         return " Position: [" + positionX + "," + positionY + "]"
                 + " Velocity: [" + velocityX + "," + velocityY + "]";
     }
+
+
 }
