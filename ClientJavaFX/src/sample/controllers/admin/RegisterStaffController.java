@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sample.controllers.AbstractController;
+import sample.controllers.Validation;
 import sample.entities.GeneralEntity;
 import sample.entities.roles.Role;
 
@@ -22,7 +23,7 @@ public class RegisterStaffController extends AbstractController {
 
 
     public void handleStaffRegister(ActionEvent actionEvent) {
-
+        if (Validation.validateEmail(email.getText())) {
             GeneralEntity usersEntity = new GeneralEntity();
             usersEntity.setLogin(login.getText());
             usersEntity.setPassword(password.getText());
@@ -32,7 +33,12 @@ public class RegisterStaffController extends AbstractController {
             usersEntity.setEmail(email.getText());
 
             server.postNewStaff(usersEntity);
-            app.change("admin/RegisterStaff");
+            app.change("admin/staff");
+        }
+        else {
+            errorField.setText("Invalid email");
+
+        }
 
     }
 

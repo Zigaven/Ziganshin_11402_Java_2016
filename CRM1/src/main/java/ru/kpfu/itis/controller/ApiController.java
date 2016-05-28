@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import ru.kpfu.itis.entities.ComicsEntity;
 import ru.kpfu.itis.entities.GeneralEntity;
+import ru.kpfu.itis.entities.ShopEntity;
 import ru.kpfu.itis.entities.roles.Role;
 import ru.kpfu.itis.service.ComicsService;
 import ru.kpfu.itis.service.OrdersService;
+import ru.kpfu.itis.service.ShopService;
 import ru.kpfu.itis.service.UserService;
 
 import java.io.IOException;
@@ -33,7 +35,8 @@ public class ApiController {
     @Autowired
     ComicsService comicsService;
 
-
+    @Autowired
+    ShopService shopService;
 
 
 
@@ -51,7 +54,7 @@ public class ApiController {
     }
 
     @RequestMapping(value = "/comics/new" , method = RequestMethod.POST)
-    public void postNewCar(@RequestBody String appIdJson){
+    public void postNewComics(@RequestBody String appIdJson){
         ComicsEntity comicsEntity= new ComicsEntity();
         try {
             comicsEntity = new ObjectMapper().readValue(appIdJson,ComicsEntity.class);
@@ -62,7 +65,13 @@ public class ApiController {
     }
 
 
-    @RequestMapping(value = "/users/new" , method = RequestMethod.POST)
+    @RequestMapping("/staff")
+    public List<GeneralEntity> getStaff() {
+        return userService.findAllByRole(Role.ROLE_STAFF);
+    }
+
+
+    @RequestMapping(value = "/staff/new" , method = RequestMethod.POST)
     public void postNewUser(@RequestBody String appIdJson){
         GeneralEntity usersEntity= new GeneralEntity();
         try {
@@ -73,6 +82,24 @@ public class ApiController {
 
 
         userService.addNewUser(usersEntity);
+    }
+
+
+
+    @RequestMapping("/shop")
+    public List<ShopEntity> getShops() {
+        return shopService.getAll();
+    }
+
+    @RequestMapping(value = "/shops/new" , method = RequestMethod.POST)
+    public void postNewShop(@RequestBody String appIdJson){
+        ShopEntity shopEntity= new ShopEntity();
+        try {
+            shopEntity = new ObjectMapper().readValue(appIdJson,ShopEntity.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        shopService.addNewShop(shopEntity);
     }
 
 }

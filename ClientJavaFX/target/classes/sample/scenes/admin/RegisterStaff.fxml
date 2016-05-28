@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.admin.RegisterStaffController">
     <children>
-        <FlowPane layoutY="47.0" prefHeight="360.0" prefWidth="186.0" style="-fx-background-color: orange;">
+        <FlowPane layoutY="44.0" prefHeight="363.0" prefWidth="186.0" style="-fx-background-color: orange;">
          <children>
             <TextFlow prefHeight="188.0" prefWidth="176.0">
                <children>
@@ -21,7 +21,7 @@
             </TextFlow>
          </children>
         </FlowPane>
-        <GridPane alignment="TOP_CENTER" layoutX="208.0" layoutY="47.0" prefHeight="360.0" prefWidth="258.0" style="-fx-background-color: orange;">
+        <GridPane alignment="TOP_CENTER" layoutX="208.0" layoutY="34.0" prefHeight="373.0" prefWidth="258.0" style="-fx-background-color: orange;">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="175.0" />
             </columnConstraints>
@@ -38,7 +38,17 @@
             </rowConstraints>
             <children>
                 <TextField fx:id="login" layoutX="34.0" layoutY="62.0" prefHeight="22.0" prefWidth="190.0" promptText="Login" GridPane.rowIndex="3" />
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleStaffRegister" prefHeight="27.0" prefWidth="190.0" text="Register new Staff" textFill="#212122" GridPane.rowIndex="8" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleStaffRegister" prefHeight="27.0" prefWidth="190.0" style="-fx-background-color: grey;" text="Register new Staff" textFill="#ffb700" GridPane.rowIndex="8">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
                 <TextField fx:id="firstname" prefHeight="0.0" prefWidth="190.0" promptText="First name" GridPane.rowIndex="4" />
                 <TextField fx:id="lastname" layoutX="34.0" layoutY="155.0" prefHeight="23.0" prefWidth="190.0" promptText="Last name" GridPane.rowIndex="5" />
                 <PasswordField fx:id="password" promptText="Password" GridPane.rowIndex="6" />
@@ -46,11 +56,41 @@
                 <Label fx:id="errorField" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="186.0" text="Register New Staff" textFill="#2f2929" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             </children>
         </GridPane>
-      <FlowPane layoutY="-1.0" prefHeight="49.0" prefWidth="466.0" style="-fx-background-color: orange;">
+      <FlowPane layoutY="-1.0" prefHeight="47.0" prefWidth="466.0" style="-fx-background-color: orange;">
          <children>
-                <Button mnemonicParsing="false" onAction="#handleAddNewComicsPage" prefHeight="34.0" prefWidth="154.0" text="Add New Comics" textFill="#181a1b" />
-                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" text="Register New Staff" textFill="#0a0a0a" />
-                <Button mnemonicParsing="false" onAction="#handleComicsPage" prefHeight="34.0" prefWidth="154.0" text="Comics" textFill="#151617" />
+                <Button mnemonicParsing="false" onAction="#handleStaffPage" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: grey;" text="Staff" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" onAction="#handleComicsPage" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: grey;" text="Comics" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" onAction="#handleShopsPage" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: grey;" text="Shops" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
          </children>
       </FlowPane>
     </children>

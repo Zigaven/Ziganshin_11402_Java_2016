@@ -23,16 +23,16 @@ public abstract class AbstractController {
     }
 
     public void handleStaffPage(ActionEvent actionEvent) {
-        app.change("admin/staffPage");
+        app.change("admin/staff");
     }
 
-    public void handleAddNewShop(ActionEvent actionEvent) {
+    public void handleAddNewShopPage(ActionEvent actionEvent) {
         app.change("admin/addShop");
 
     }
 
     public void handleShopsPage(ActionEvent actionEvent) {
-        app.change("admin/shopsPage");
+        app.change("admin/shop");
 
     }
 
@@ -47,12 +47,6 @@ public abstract class AbstractController {
 
 
 
-    public void handleOrders(ActionEvent actionEvent){
-        app.change("staff/ordersPage");
-    }
 
 
-    public void handleClientComicsPage(ActionEvent actionEvent) {
-        app.change("client/comicsPage");
-    }
 }

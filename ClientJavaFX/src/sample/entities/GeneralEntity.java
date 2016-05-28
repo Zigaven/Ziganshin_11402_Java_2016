@@ -3,8 +3,6 @@ package sample.entities;
 
 import sample.entities.roles.Role;
 
-import java.util.List;
-
 /**
  * Created by ruslanzigansin on 24.04.16.
  */
@@ -28,15 +26,15 @@ public class GeneralEntity {
 
     private PersonnelProfileEntity staff_person;
 
-    private List<OrdersEntity> orders;
+//    private List<OrdersEntity> orders;
 
-    public List<OrdersEntity> getOrders() {
-        return orders;
-    }
+//    public List<OrdersEntity> getOrders() {
+//        return orders;
+//    }
 
-    public void setOrders(List<OrdersEntity> orders) {
-        this.orders = orders;
-    }
+//    public void setOrders(List<OrdersEntity> orders) {
+//        this.orders = orders;
+//    }
 
     public PersonnelProfileEntity getStaff_person() {
         return staff_person;

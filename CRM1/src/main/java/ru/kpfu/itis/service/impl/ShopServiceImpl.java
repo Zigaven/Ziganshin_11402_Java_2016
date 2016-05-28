@@ -11,6 +11,8 @@ import ru.kpfu.itis.repository.ShopRepository;
 import ru.kpfu.itis.service.ShopService;
 import ru.kpfu.itis.util.RegShopToUser;
 
+import java.util.List;
+
 /**
  * Created by ruslanzigansin on 27.04.16.
  */
@@ -26,6 +28,15 @@ public class ShopServiceImpl implements ShopService {
         return shopRepository.findAll(pageRequest);
     }
 
+    @Override
+    public List<ShopEntity> getAll() {
+        return shopRepository.findAll();
+    }
+
+    @Override
+    public void addNewShop(ShopEntity shopEntity) {
+        shopRepository.save(shopEntity);
+    }
 
 
     public ShopEntity getOneById(Long id) {

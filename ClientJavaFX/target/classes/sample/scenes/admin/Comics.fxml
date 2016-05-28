@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.admin.ComicsController">
@@ -27,13 +27,55 @@
                   </Text>
                </children>
             </TextFlow>
+                <Button mnemonicParsing="false" onAction="#handleAddNewComicsPage" prefHeight="1.0" prefWidth="158.0" style="-fx-background-color: grey;" text="Add New Comics" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
          </children>
         </FlowPane>
       <FlowPane prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
-                <Button mnemonicParsing="false" onAction="#handleAddNewComicsPage" prefHeight="34.0" prefWidth="193.0" text="Add New Comics" textFill="#1f2022" />
-                <Button mnemonicParsing="false" onAction="#handleRegisterStaffPage" prefHeight="34.0" prefWidth="188.0" text="Register Staff" textFill="#242628" />
-                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="219.0" text="Comics" textFill="#090a0a" />
+                <Button mnemonicParsing="false" onAction="#handleStaffPage" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: grey;" text="Staff" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Comics" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Button mnemonicParsing="false" onAction="#handleShopsPage" prefHeight="34.0" prefWidth="193.0" style="-fx-background-color: grey;" text="Shops" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
          </children>
       </FlowPane>
     </children>

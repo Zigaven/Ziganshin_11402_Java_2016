@@ -1,68 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="sample.controllers.admin.AddComicsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.admin.AddComicsController">
     <children>
         <FlowPane layoutY="45.0" prefHeight="356.0" prefWidth="160.0" style="-fx-background-color: orange;">
             <children>
                 <FlowPane prefHeight="151.0" prefWidth="188.0">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Best Store Of Comics &quot;Progressus&quot;"
-                              wrappingWidth="189.21875">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Best Store Of Comics &quot;Progressus&quot;" wrappingWidth="189.21875">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Text>
                     </children>
                 </FlowPane>
             </children>
         </FlowPane>
-        <GridPane alignment="TOP_CENTER" layoutX="211.0" layoutY="45.0" prefHeight="356.0" prefWidth="237.0"
-                  style="-fx-background-color: orange;">
+        <GridPane alignment="TOP_CENTER" layoutX="211.0" layoutY="45.0" prefHeight="356.0" prefWidth="237.0" style="-fx-background-color: orange;">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="175.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="175.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0"/>
-                <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="34.0"/>
-                <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="34.0"/>
-                <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="94.0" minHeight="9.0" prefHeight="56.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="137.0" minHeight="4.0" prefHeight="62.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER"
-                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="34.0" />
+                <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="34.0" />
+                <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="94.0" minHeight="9.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="137.0" minHeight="4.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="174.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="70.0" valignment="CENTER" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TextField fx:id="name" promptText="Name" GridPane.rowIndex="3"/>
-                <TextField fx:id="price" promptText="Price" GridPane.rowIndex="5"/>
-                <TextField fx:id="description" promptText="Description" GridPane.rowIndex="6"/>
-                <Label fx:id="errorField" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="186.0"
-                       textFill="#282525" GridPane.rowIndex="1"/>
-                <TextField fx:id="publisher" promptText="Publisher" GridPane.rowIndex="4"/>
-                <TextField fx:id="path" layoutX="34.0" layoutY="209.0" promptText="Path" GridPane.rowIndex="7"/>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleComicsAddAction" prefHeight="27.0"
-                        prefWidth="190.0" text="Add Comics" textFill="#0d0d0d" GridPane.rowIndex="8"/>
-                <Label prefHeight="17.0" prefWidth="181.0" text="         Add New Comics" GridPane.rowIndex="2"/>
+                <TextField fx:id="name" promptText="Name" GridPane.rowIndex="3" />
+                <TextField fx:id="publisher" promptText="Publisher" GridPane.rowIndex="4" />
+                <TextField fx:id="price" promptText="Price" GridPane.rowIndex="5" />
+                <TextField fx:id="description" promptText="Description" GridPane.rowIndex="6" />
+                <Label fx:id="errorField" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="186.0" textFill="#282525" GridPane.rowIndex="1" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleComicsAddAction" prefHeight="27.0" prefWidth="190.0" style="-fx-background-color: grey;" text="Add Comics" textFill="#ffb700" GridPane.rowIndex="8">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Label prefHeight="17.0" prefWidth="181.0" text="         Add New Comics" GridPane.rowIndex="2" />
 
             </children>
         </GridPane>
         <TextFlow prefHeight="49.0" prefWidth="477.0" style="-fx-background-color: orange;">
             <children>
-                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="177.0" text="Add new Comics"
-                        textFill="#131314"/>
-                <Button mnemonicParsing="false" onAction="#handleRegisterStaffPage" prefHeight="33.0" prefWidth="146.0"
-                        text="Register Staff" textFill="#0c0d0d"/>
-                <Button mnemonicParsing="false" onAction="#handleComicsPage" prefHeight="34.0" prefWidth="154.0"
-                        text="Comics"/>
+                <Button mnemonicParsing="false" onAction="#handleStaffPage" prefHeight="34.0" prefWidth="177.0" style="-fx-background-color: grey;" text="Staff" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" onAction="#handleComicsPage" prefHeight="34.0" prefWidth="154.0" style="-fx-background-color: grey;" text="Comics" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" onAction="#handleShopsPage" prefHeight="33.0" prefWidth="146.0" style="-fx-background-color: grey;" text="Shops" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
             </children>
         </TextFlow>
     </children>

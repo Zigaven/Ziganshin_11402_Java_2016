@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.admin.StaffController">
+    <children>
+        <TableView fx:id="staffTable" layoutX="157.0" layoutY="35.0" prefHeight="367.0" prefWidth="444.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="34.0" sortType="DESCENDING" text="ID" />
+                <TableColumn fx:id="firstnameColumn" prefWidth="89.0" text="FirstName" />
+                <TableColumn fx:id="lastnameColumn" prefWidth="92.0" text="LastName" />
+                <TableColumn fx:id="loginColumn" prefWidth="111.0" text="Login" />
+                <TableColumn fx:id="emailColumn" prefWidth="116.0" text="Email" />
+            </columns></TableView>
+        <FlowPane layoutY="33.0" prefHeight="367.0" prefWidth="155.0" style="-fx-background-color: orange;">
+         <children>
+            <TextFlow prefHeight="200.0" prefWidth="156.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Best Store Of Comics &quot;Progressus&quot;">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+                <Button mnemonicParsing="false" onAction="#handleRegisterStaffPage" prefHeight="1.0" prefWidth="158.0" style="-fx-background-color: grey;" text="Register New Staff" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+         </children>
+        </FlowPane>
+      <FlowPane prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+                <Button mnemonicParsing="false" onAction="#handleStaffPage" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: grey;" text="Staff" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+                <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="219.0" style="-fx-background-color: grey;" text="Comics" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Button mnemonicParsing="false" onAction="#handleShopsPage" prefHeight="34.0" prefWidth="193.0" style="-fx-background-color: grey;" text="Shops" textFill="#ffb700">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+         </children>
+      </FlowPane>
+    </children>
+</Pane>

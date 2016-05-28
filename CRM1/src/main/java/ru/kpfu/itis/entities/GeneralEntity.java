@@ -3,7 +3,6 @@ package ru.kpfu.itis.entities;
 import ru.kpfu.itis.entities.roles.Role;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by ruslanzigansin on 24.04.16.
@@ -40,16 +39,16 @@ public class GeneralEntity {
     @OneToOne
     private PersonnelProfileEntity staff_person;
 
-    @OneToMany(mappedBy = "clientEntity")
-    private List<OrdersEntity> orders;
-
-    public List<OrdersEntity> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<OrdersEntity> orders) {
-        this.orders = orders;
-    }
+//    @OneToMany(mappedBy = "clientEntity")
+//    private List<OrdersEntity> orders;
+//
+//    public List<OrdersEntity> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(List<OrdersEntity> orders) {
+//        this.orders = orders;
+//    }
 
     public PersonnelProfileEntity getStaff_person() {
         return staff_person;

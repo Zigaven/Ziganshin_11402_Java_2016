@@ -15,7 +15,6 @@ public class AddComicsController extends AbstractController {
     public TextField price;
     public TextField publisher;
     public TextField description;
-    public TextField path;
     public Label errorField;
 
 
@@ -26,7 +25,7 @@ public class AddComicsController extends AbstractController {
             comicsEntity.setPrice(Integer.parseInt(price.getText()));
             comicsEntity.setPublisher(publisher.getText());
             comicsEntity.setDescription(description.getText());
-            comicsEntity.setPath(path.getText());
+            comicsEntity.setPath("hehehe");
             server.postNewComics(comicsEntity);
 
             System.out.println(comicsEntity.getName());

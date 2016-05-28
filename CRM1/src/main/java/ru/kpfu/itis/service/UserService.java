@@ -20,4 +20,6 @@ public interface UserService {
     List<GeneralEntity> findAllByRole(Enum Role);
 
     GeneralEntity getUserByLogin(String username);
+
+
 }

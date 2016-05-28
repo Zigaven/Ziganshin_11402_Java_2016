@@ -22,22 +22,21 @@ public class LoginController extends AbstractController {
 
     public void handleSubmitAction(ActionEvent actionEvent) {
         ServerAuthentication authentication = new ServerAuthentication();
-        System.out.println(login.getText());
-        System.out.println(password.getText());
         if (authentication.tryAuth(login.getText(), password.getText())) {
-            switch (ServerAuthentication.role){
+            switch (ServerAuthentication.role) {
                 case ROLE_ADMIN:
                     app.change("admin/Comics");
                     break;
-//                case ROLE_STAFF:
-//                    app.change("staff/ordersPage");
-//                    break;
-//
-//                case ROLE_CLIENT:
-//                    app.change("client/comicsPage");
-//                    break;
+                case ROLE_STAFF:
+                    error.setText(" Invalid login or password");
+                    break;
 
-                default:app.change("login");
+                case ROLE_CLIENT:
+                    error.setText(" Invalid login or password");
+                    break;
+
+                default:
+                    app.change("login");
             }
 
         } else {

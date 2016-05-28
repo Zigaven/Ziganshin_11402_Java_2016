@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import sample.entities.ComicsEntity;
 import sample.entities.GeneralEntity;
+import sample.entities.ShopEntity;
 import sample.entities.roles.Role;
 
 import java.io.IOException;
@@ -68,16 +69,15 @@ public class ServerConnection {
         return new HttpEntity(payload, headers);
     }
 
-//
-//    public List<ShopEntity> getAvailableCars() {
-//        try {
-//            return Arrays.asList(mapper().readValue(getResponse("shop"), CarsEntity[].class));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-//
+
+    public List<ShopEntity> getShops() {
+        try {
+            return Arrays.asList(mapper().readValue(getResponse("shop"), ShopEntity[].class));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public List<GeneralEntity> getStaff() {
         try {
@@ -92,6 +92,11 @@ public class ServerConnection {
     }
 
     public void postNewStaff(GeneralEntity usersEntity) {
-        doPost("users/new",usersEntity);
+        doPost("staff/new",usersEntity);
     }
+
+    public void postNewShop(ShopEntity shopEntity) {
+        doPost("shops/new",shopEntity);
+    }
+
 }

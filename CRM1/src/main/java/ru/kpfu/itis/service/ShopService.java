@@ -5,7 +5,6 @@ import org.springframework.data.domain.PageRequest;
 import ru.kpfu.itis.entities.ShopEntity;
 import ru.kpfu.itis.form.ShopForm;
 
-import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -13,6 +12,10 @@ import java.util.List;
  */
 public interface ShopService {
     Page<ShopEntity> getAllShops(PageRequest pageRequest);
+
+    List<ShopEntity> getAll();
+
+    void addNewShop(ShopEntity shopEntity);
 
 //    BigInteger getAllSalary();
 //
