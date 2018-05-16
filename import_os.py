@@ -3,7 +3,7 @@ import random
 import sys
 import time
 import telepot
-
+port = int(os.environ.get("PORT", 5000))
 from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, ForceReply
 
 chats = {}
@@ -30,6 +30,7 @@ def on_chat_message(msg):
 TOKEN = "586715397:AAGOCEMPP9s5qNGLT1G1aNdrJ1NOFeA5Yj0"
 
 bot = telepot.Bot(TOKEN)
+
 
 bot.message_loop({'chat': on_chat_message})
 print('Listening ...')
