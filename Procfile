@@ -1,1 +1,1 @@
-web: python3 import_os.py
+web: python import_os.py
